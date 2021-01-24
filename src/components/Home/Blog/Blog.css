@@ -1,5 +1,5 @@
 .blogs .card{
-  border: 0;
+  box-shadow: 0.5px 0.5px 0px 0px;
 }
 .blogs .card-header{
   border: 0;
