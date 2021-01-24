@@ -5,9 +5,9 @@ import Header from '../Header/Header';
 
 const HeaderContainer = () => {
   return (
-    <div className="header-container">
-     <NavBar />
-     <Header />
+    <div className="common__bg header__container">
+      <NavBar />
+      <Header />
     </div>
   );
 };

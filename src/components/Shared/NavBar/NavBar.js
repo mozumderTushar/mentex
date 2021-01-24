@@ -21,13 +21,13 @@ const NavBar = () => {
               <a className="nav-link mr-5" href="/dashboard/appointment">Dashboard</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link mr-5 ${window.location.pathname === '/appointment' ? 'text-secondary' : 'text-white'} text-white`} href="/post">Post</a>
+              <a className="nav-link mr-5" href="/post">Post</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link mr-5 ${window.location.pathname === '/appointment' ? 'text-secondary' : 'text-white'} text-white`} href="/stories">Stories</a>
+              <a className="nav-link mr-5" href="/stories">Stories</a>
             </li>
             <li className="nav-item">
-              <a className={`nav-link mr-5 ${window.location.pathname === '/appointment' ? 'text-secondary' : 'text-white'} text-white`} href="#">Contact Us</a>
+              <a className="nav-link mr-5" href="/contact">Contact Us</a>
             </li>
           </ul>
         </div>
