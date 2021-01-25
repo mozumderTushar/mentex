@@ -2,6 +2,16 @@
   margin: 0;
   padding: 0;
 }
-.common__bg{
+
+p{
+  margin: 0;
+}
+
+.common__bg__cyan{
  background-color: #E8FCFA;
 }
+
+.common__bg__dark__blue{
+  background-color: #1F2235 ;
+  /* background-color: lightblue ; */
+ }

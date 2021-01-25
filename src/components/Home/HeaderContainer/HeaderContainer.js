@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 
 const HeaderContainer = () => {
   return (
-    <div className="common__bg header__container">
+    <div className="common__bg__cyan header__container">
       <NavBar />
       <Header />
     </div>
