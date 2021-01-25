@@ -29,13 +29,13 @@ const blogData = [
 
 const Blog = () => {
   return (
-    <section className="blogs my-5">
+    <section className="blogs p-5 common__bg__cyan">
       <div className="container">
         <div className="section-header text-center">
           <h5 className="text-primary text-uppercase">our blog</h5>
           <h1>From Our Blog News</h1>
         </div>
-        <div className="card-deck mt-5">
+        <div className="card-deck my-5">
           {
             blogData.map(blog => <BlogPost blog={blog} key={blog.title} />)
           }
