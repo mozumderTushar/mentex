@@ -1,0 +1,11 @@
+.contact__us__container{
+    height: 100vh;
+  }
+  .contact__us__header{
+    color: #fff
+  }
+  .feel{
+      font-size: 30px;
+      font-weight: 300;
+      font-family: cursive;
+  }
