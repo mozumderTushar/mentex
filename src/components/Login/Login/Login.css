@@ -1,0 +1,29 @@
+.BtnDesign{
+  width:-webkit-fill-available;
+  background-image: linear-gradient(75deg, #19D3AE,#0fcfec);
+  border:none;
+  height: 40px;
+}
+.forgetPassword{
+  margin-left: 100px;
+  color: #1cc7c1;
+  cursor: pointer;
+}
+.google-button {
+  background-image: url(https://i.ibb.co/jWsmmMJ/google.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-size: contain;
+  /* border: none; */
+  cursor: pointer;
+  height: 38px;
+  padding-left: 40px;
+  vertical-align: middle;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 341px;
+  border:1px solid gray
+}
