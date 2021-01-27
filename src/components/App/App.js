@@ -12,6 +12,7 @@ import About from '../About/About';
 import Contact from '../Contactus/Contact'
 import NavBar from '../Shared/NavBar/NavBar';
 import Login from '../Login/Login/Login';
+import ExpertAppointment from '../ExpertAppointment/ExpertAppointment/ExpertAppointment';
 
 export const UserContext = createContext();
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/about'> <About /> </Route>
           <Route path='/contact'> <Contact /> </Route>
           <Route path='/login'> <Login /> </Route>
+          <Route path='/connectExpert'> <ExpertAppointment /> </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
