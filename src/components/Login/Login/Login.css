@@ -1,0 +1,132 @@
+.card__style{
+  width: 25rem;
+  margin: 0 auto;
+  border: none;
+}
+.BtnDesign{
+  width:-webkit-fill-available;
+  background-image: linear-gradient(75deg, #19D3AE,#0fcfec);
+  border:none;
+  height: 40px;
+}
+.forgetPassword{
+  margin-left: 100px;
+  color: #1cc7c1;
+  cursor: pointer;
+}
+.google-button {
+  background-image: url(https://i.ibb.co/jWsmmMJ/google.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  background-size: contain;
+  /* border: none; */
+  cursor: pointer;
+  height: 38px;
+  padding-left: 40px;
+  vertical-align: middle;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 341px;
+  border:1px solid gray
+}
+
+@media screen and (min-width: 0px) and (max-width:280px){
+  .card__style{
+    width: 18rem;
+    margin-left: -25%;
+  }
+
+  .forgetPassword {
+    margin-left:10px;
+    font-size: 15px;
+  }
+
+  .remember__me{
+    font-size: 15px;
+  }
+
+  .text-brand{
+    margin-top: 5px;
+    font-size: 15px;
+  }
+
+  .google-button{
+    width: 17.4rem;
+    margin-left: -25%;
+  }
+}
+
+@media screen and (min-width: 281px) and (max-width:320px){
+  .card__style{
+    width: 20rem;
+    margin-left: -20%;
+  }
+
+  .google-button{
+    width: 19.5rem;
+    margin-left: -20%;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width:360px){
+  .card__style{
+    width: 20rem;
+    margin-left: -10%;
+    border: none;
+  }
+  .forgetPassword {
+    margin-left:35px;
+ 
+  }
+  .text-brand{
+    margin-top: 5px;
+  }
+
+  .google-button{
+    width: 20rem;
+    margin-left: -10%;
+  }
+}
+
+@media screen and (min-width: 361px) and (max-width:375px){
+  .card__style{
+    width: 22rem;
+    margin-left: -13%;
+    border: none;
+  }
+  .forgetPassword {
+    margin-left:35px;
+ 
+  }
+  .text-brand{
+    margin-top: 5px;
+  }
+
+  .google-button{
+    width: 22rem;
+    margin-left: -13%;
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width:414px){
+  .card__style{
+    width: 22rem;
+    margin-left: -5%;
+    border: none;
+  }
+  .forgetPassword {
+    margin-left:35px;
+ 
+  }
+  .text-brand{
+    margin-top: 5px;
+  }
+
+  .google-button{
+    width: 22rem;
+    margin-left: -5%;
+  }
+}

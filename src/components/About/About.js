@@ -114,7 +114,9 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <div className={`${window.location.pathname === '/about' ? 'common__bg__dark__blue' : 'common__bg__cyan '}`}>
+        <Footer />
+      </div>
     </div>
   );
 };

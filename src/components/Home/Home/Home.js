@@ -12,7 +12,9 @@ const Home = () => {
       <ConnectWithExperts />
       <Blog />
       <Contact />
-      <Footer />
+      <div className={`${window.location.pathname === '/' ? 'common__bg__cyan' : 'common__bg__dark__blue '}`}>
+        <Footer />
+      </div>
     </div>
   );
 };
