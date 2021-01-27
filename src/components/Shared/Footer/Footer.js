@@ -36,7 +36,7 @@ const Footer = () => {
     { name: "Check Up", link: "/checkup" }
   ]
   return (
-    <footer className="footer__area clear-both common__bg__cyan">
+    <footer className="footer__area clear-both">
       <div className="container pt-5">
         <div className="row py-5">
           <FooterCol key={1} menuTitle={""} menuItems={noNamed} />

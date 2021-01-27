@@ -8,6 +8,7 @@ import { Card, Form } from 'react-bootstrap';
 import { UserContext } from '../../App/App';
 import './Login.css'
 import NavBar from '../../Shared/NavBar/NavBar';
+import Footer from '../../Shared/Footer/Footer';
 
 
 const Login = () => {
@@ -132,7 +133,7 @@ const Login = () => {
         <div className="row align-items-center">
           <div className="col-md-6 shadow p-5">
             {/* log in and register form  */}
-            <Card style={{ width: '25rem', margin: '0 auto', border: 'none' }}>
+            <Card className="card__style">
               <Card.Body>
                 {newUser ? <h3>Create an account</h3> : <h3>Login</h3>}
 
@@ -154,13 +155,13 @@ const Login = () => {
                   </Form.Group>
 
                   {!newUser && <Form.Group controlId="formBasicCheckbox" className="d-flex ">
-                    <Form.Check type="checkbox" label="Remember Me" /> <p className="forgetPassword">Forget Password</p>
+                    <Form.Check type="checkbox" label="Remember Me" className="remember__me"/> <p className="forgetPassword">Forget Password</p>
                   </Form.Group>}
 
                   <input className="BtnDesign" type="submit" value={newUser ? 'Create an account' : 'Login'} />
 
                   {newUser ? <p>Already have an account?<span className="text-brand" onClick={() => setNewUser(!newUser)}>Login</span></p> :
-                    <p>Don't have account?<span className="text-brand" onClick={() => setNewUser(!newUser)}>Create a account</span></p>}
+                    <p  className="text-brand">Don't have account?<span className="text-brand" onClick={() => setNewUser(!newUser)}>Create a account</span></p>}
                 </Form>
               </Card.Body>
             </Card>
@@ -170,6 +171,9 @@ const Login = () => {
             <img className="img-fluid" src={LoginBg} alt="" />
           </div>
         </div>
+      </div>
+      <div className={`${window.location.pathname === '/login' ? 'common__bg__dark__blue' : 'common__bg__cyan '}`}>
+        <Footer />
       </div>
     </div>
   );
