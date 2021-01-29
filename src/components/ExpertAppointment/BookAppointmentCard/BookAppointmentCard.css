@@ -1,0 +1,19 @@
+.appointment__card{
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+
+.appointment__card__header{
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+.appointment__card__btn{
+  color: #000
+}
+
+.appointment__card__btn:hover{
+  background-color:#000;
+  color: #fff;
+  text-decoration: none;
+}

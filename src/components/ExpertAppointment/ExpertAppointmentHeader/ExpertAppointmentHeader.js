@@ -1,5 +1,4 @@
 import React from 'react';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import headerImg from '../../assets/images/header.png';
 
@@ -11,11 +10,7 @@ const ExpertAppointmentHeader = ({handleDateChange}) => {
           <img className="img-fluid" src={headerImg} alt="" />
         </div>
         <div className="col-md-4 offset-md-1">
-          <h1 style={{ color: '#3A4256' }}>Appointment</h1>
-          <Calendar
-            onChange={handleDateChange}
-            value={new Date()}
-          />
+          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, velit?</h3>
         </div>
       </main>
     </div>

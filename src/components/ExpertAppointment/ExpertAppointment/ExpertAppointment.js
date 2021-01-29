@@ -12,8 +12,8 @@ const ExpertAppointment = () => {
   return (
     <div className="common__bg__cyan">
       <NavBar />
-      <ExpertAppointmentHeader handleDateChange={handleDateChange} />
-      <BookAppointment date={selectedDate} />
+      <ExpertAppointmentHeader />
+      <BookAppointment date={selectedDate} handleDateChange={handleDateChange}/>
       <div className={`${window.location.pathname === '/connectExpert' ? 'common__bg__dark__blue' : 'common__bg__cyan '}`}>
         <Footer />
       </div>
