@@ -1,5 +1,6 @@
 import React from 'react';
 import BookAppointmentCard from '../BookAppointmentCard/BookAppointmentCard';
+import Calendar from 'react-calendar';
 
 const bookingData = [
   {
@@ -36,24 +37,27 @@ const bookingData = [
     subject: 'Teeth Orthodontics',
     visitingHour: '8:00 AM - 9:00 AM',
     totalSpace: 10
-  },
-  {
-    _id: '5e8df6a0e6e8231764dc23e3',
-    id: 6,
-    subject: 'Teeth Orthodontics',
-    visitingHour: '8:00 AM - 9:00 AM',
-    totalSpace: 10
   }
 ]
 
-const BookAppointment = ({ date }) => {
+const BookAppointment = ({ date, handleDateChange }) => {
   return (
-    <section>
-      <h2 className="text-center text-brand mb-5">Available Appointments on {date.toDateString()}</h2>
-      <div className="row">
-        {
-          bookingData.map(booking => <BookAppointmentCard booking={booking} date={date} key={booking.id}></BookAppointmentCard>)
-        }
+    <section className="text-center">
+      <h2 className=" text-center text-brand mb-5">Available Appointments on {date.toDateString()}</h2>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4">
+            {
+              bookingData.map(booking => <BookAppointmentCard booking={booking} date={date} key={booking.id}></BookAppointmentCard>)
+            }
+          </div>
+            <div className="col-md-4 offset-md-3">
+              <Calendar
+                onChange={handleDateChange}
+                value={new Date()}
+              />
+            </div>
+        </div>
       </div>
     </section>
   );
