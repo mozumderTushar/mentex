@@ -38,9 +38,8 @@ const Contact = () => {
         </div>
         </div>
 
-        <div className="contact__us__container">
           <div className="common__bg__dark__blue">
-          <h1 className="text-center pt-5 contact__us__header">CONTACT US</h1>
+          <h1 className="text-center pt-5 contact__us__header contact__title">CONTACT US</h1>
           <form onSubmit={sendEmail}>
           <div className="row pt-5 mx-auto">
             <div className="col-8 form-group mx-auto">
@@ -61,7 +60,6 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </div>
 
     <Footer />
     </div>

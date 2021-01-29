@@ -1,6 +1,5 @@
 import React from 'react';
 import './About.css'
-import aboutImg from '../assets/images/1.jpg';
 import whatImg from '../assets/images/2-1.png';
 import impactImg from '../assets/images/3.png';
 import NavBar from '../Shared/NavBar/NavBar';
@@ -11,30 +10,10 @@ const About = () => {
     <div className="common__bg__cyan">
       <NavBar />
       <div className="container about-us">
-        <h1 className="title text-center">WHY CHOOSE US?</h1>
-        <div className="row">
-          <div className="col-md-6 about-us">
-            <p className="about-title">Why We're Different</p>
-            <ul>
-              <li>Breath. Feel. Live. Your time is now.</li>
-              <li>We support mental health awareness month!</li>
-              <li>Improves mood,lowers stress and anxiety!</li>
-              <li>Believe in doing with honesty.</li>
-              <li>You deserve the peace.</li>
-              <li>Because You're Worth It.....</li>
-              <li>Every cloud has a silver lining..</li>
-            </ul>
-          </div>
-          <div className="col-md-6">
-            <img className="img-fluid rounded mt-md-5 pt-md-3" src={aboutImg} alt="" />
-          </div>
-        </div>
-
-
         <div className="row">
           <div className="col-12 about-us">
             <div>
-              <h1 className="title text-center mt-5">Why This Platform?</h1>
+              <h1 className="title text-center">Why This Platform?</h1>
               <p class="lead text-center">You don't have to struggle in silence!Think Less,Sleep Better.Be Happier...</p>
             </div>
           </div>

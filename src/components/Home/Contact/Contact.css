@@ -1,6 +1,103 @@
-.contact__us__container{
-  height: 100vh;
+.contact__title::before{
+  content:'';
+  background: #5AE4A7;
+  height: 5px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transform: translateY(63px);
+}
+.contact__title::after{
+  content:'';
+  background: #5AE4A7;
+  height: 10px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  display: block;
+  transform: translateY(8px);
 }
 .contact__us__header{
   color: #fff
+}
+@media screen and (min-width: 260px) and (max-width:314px){
+  .contact__title{
+    font-size:20px;
+  }
+  .contact__title::before{
+    content:'';
+    background: #5AE4A7;
+    height: 5px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(40px);
+  }
+  .contact__title::after{
+    content:'';
+    background: #5AE4A7;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px);
+  }
+}
+@media screen and (min-width: 315px) and (max-width:380px){
+  .contact__title{
+    font-size:20px;
+  }
+  .contact__title::before{
+    content:'';
+    background: #5AE4A7;
+    height: 5px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(40px);
+  }
+  .contact__title::after{
+    content:'';
+    background: #5AE4A7;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px);
+  }
+}
+
+@media screen and (min-width: 381px) and (max-width:503px){
+  .contact__title{
+    font-size:25px;
+  }
+  .contact__title::before{
+    content:'';
+    background: #5AE4A7;
+    height: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(45px);
+  }
+  .contact__title::after{
+    content:'';
+    background: #5AE4A7;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px);
+  }
 }
