@@ -1,3 +1,24 @@
+.blog__title::before{
+  content:'';
+  background: #5AE4A7;
+  height: 5px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transform: translateY(63px);
+}
+.blog__title::after{
+  content:'';
+  background: #5AE4A7;
+  height: 10px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  display: block;
+  transform: translateY(8px);
+}
 .blogs .card{
   box-shadow: 0.5px 0.5px 0px 0px;
 }
@@ -24,4 +45,83 @@
 }
 .blogs .card:hover img{
   display: none;
+}
+@media screen and (min-width: 260px) and (max-width:314px){
+  .blog__title{
+    font-size:20px;
+  }
+  .blog__title::before{
+    content:'';
+    background: #5AE4A7;
+    height: 5px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(64px);
+  }
+  .blog__title::after{
+    content:'';
+    background: #5AE4A7;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px);
+  }
+}
+@media screen and (min-width: 315px) and (max-width:380px){
+  .blog__title{
+    font-size:20px;
+  }
+  .blog__title::before{
+    content:'';
+    background: #5AE4A7;
+    height: 5px;
+    width: 140px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(40px);
+  }
+  .blog__title::after{
+    content:'';
+    background: #5AE4A7;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px);
+  }
+}
+
+@media screen and (min-width: 381px) and (max-width:503px){
+  .blog__title{
+    font-size:25px;
+  }
+  .blog__title::before{
+    content:'';
+    background: #5AE4A7;
+    height: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(45px);
+  }
+  .blog__title::after{
+    content:'';
+    background: #5AE4A7;
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(8px);
+  }
 }

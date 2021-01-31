@@ -33,7 +33,7 @@ const Blog = () => {
       <div className="container">
         <div className="section-header text-center">
           <h5 className="text-primary text-uppercase">our blog</h5>
-          <h1>From Our Blog News</h1>
+          <h1 className="blog__title">From Our Blog News</h1>
         </div>
         <div className="card-deck my-5">
           {
