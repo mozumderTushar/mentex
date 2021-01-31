@@ -27,9 +27,12 @@
   background-color: transparent;
 }
 .blogs .card:hover{
+  z-index: 1;
+  box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+  transform: scale(1.08);
   background-image: linear-gradient(75deg, #19D3AE,#0fcfec);
   color: #fff !important;
-  transition:  .1s  all ease-in-out !important;
+  transition:  .2s  all ease-in-out !important;
 }
 .blogs .card:hover .card-body{
   background-image: url(../../assets/images/quote.png);

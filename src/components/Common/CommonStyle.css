@@ -31,6 +31,76 @@ html,body{
   background-color: #000;
   color: #fff;
 }
+/*Connect Button Design Start*/
+.connect{
+  position: relative;
+  display: inline-block;
+  background:transparent;
+  border: 1px solid #000;
+  color:#fff;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+}
+.connect:hover{
+  color: #fff;
+  background: #000;
+  box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+  transition-delay: 1s;
+}
+.connect span{
+  position: absolute;
+  display: block;
+}
+.connect span:nth-child(1)  {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,transparent,#2196f3);
+}
+.connect:hover span:nth-child(1) {
+  left: 100%;
+  transition: 1s;
+}
+.connect span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg,transparent,#2196f3);
+}
+.connect:hover span:nth-child(3) {
+  left: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+.connect span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,transparent,#2196f3);
+}
+.connect:hover span:nth-child(2) {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
+}
+.connect span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg,transparent,#2196f3);
+}
+.connect:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
+}
+/*Connect Button Design End */
+
 
  /* calendar design */
 .calender-area{

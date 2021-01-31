@@ -2,6 +2,7 @@ import React from 'react';
 import './About.css'
 import whatImg from '../assets/images/2-1.png';
 import impactImg from '../assets/images/3.png';
+import whyImg from '../assets/images/why.png';
 import NavBar from '../Shared/NavBar/NavBar';
 import Footer from '../Shared/Footer/Footer';
 
@@ -14,10 +15,10 @@ const About = () => {
           <div className="col-12 about-us">
             <div>
               <h1 className="title text-center">Why This Platform?</h1>
-              <p class="lead text-center">You don't have to struggle in silence!Think Less,Sleep Better.Be Happier...</p>
+              <p class="lead text-center why-slogan">You don't have to struggle in silence!Think Less,Sleep Better.Be Happier...</p>
             </div>
           </div>
-          <div className="col-12">
+          <div className="col-md-6 mt-5 pt-3">
             <div id="accordion" class="mt-3 text-center" role="tablist">
               <div class="card">
                 <div class="card-header" role="tab">
@@ -63,6 +64,9 @@ const About = () => {
               </div>
             </div>
           </div>
+          <div className="col-md-6 text-center">
+            <img className="img-fluid rounded-circle ml-3" src={whyImg} alt="" />
+          </div>
         </div>
 
 
@@ -73,7 +77,7 @@ const About = () => {
             <p className="lead">We give them a platform to where they can match themselves.They can express their feelings and stories with their friends and they can also get suggestions from professionals...</p>
           </div>
           <div className="col-md-6 text-center">
-            <img className="img-fluid rounded-circle mt-5 ml-3" src={whatImg} alt="" />
+            <img className="img-fluid rounded-circle mt-5 ml-3" style={{height:"90%"}} src={whatImg} alt="" />
           </div>
         </div>
 
@@ -83,9 +87,9 @@ const About = () => {
           </div>
           <div className="col-md-6 align-self-center mt-3">
             <h3 className="about-title">Our Impact</h3>
-            <p className="lead mt-2"><b>Unstoppable in uncertain times:</b>
+            <p className="lead mt-2"><b>Unstoppable in Uncertain Times:</b>
             Unstoppable means we never give up. It means we work to make sure everyone can get mental health support, whoever they are, whatever their race, gender, sexuality, disability or beliefs.
-            It means we design our services together with the people who use them. It means we stand up to the injustices that make life harder for people with mental health problems. It means we build on the incredible power of our local Mind network and our shops right across England and Wales.</p>
+            It means we design our services together with the people who use them. It means we stand up to the injustices that make life harder for people with mental health problems. It means we build on the incredible power of our local Mind network and our shops right across Bangladesh.</p>
             <p className="lead">And when a global pandemic suddenly strikes and creates a mental health emergency it means we act fast and do all we can to make sure everyone with a mental health problem gets support and respect.
             There is much to celebrate and build on from our 2019/20 review, but the coronavirus and the urgent need to tackle racial disparities within mental health will also now define our work going forward.
             Our world has changed, but our commitment to do everything we can to support better mental health has never been stronger.
