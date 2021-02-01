@@ -19,9 +19,7 @@
   display: block;
   transform: translateY(8px);
 }
-.blogs .card{
-  box-shadow: 0.5px 0.5px 0px 0px;
-}
+
 .blogs .card-header{
   border: 0;
   background-color: transparent;

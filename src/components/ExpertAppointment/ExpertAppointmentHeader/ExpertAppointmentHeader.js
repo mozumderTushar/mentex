@@ -9,9 +9,10 @@ const ExpertAppointmentHeader = ({handleDateChange}) => {
         <div className="col-md-6 ">
           <img className="img-fluid" src={headerImg} alt="" />
         </div>
-        <div className="col-md-4 offset-md-1">
-          <h2>Mental Health...is not a destination,but a process.It's about how you drive,Not where you're going.</h2>
-          <h4><em>Book an Appointment with Professionals Now...</em></h4>
+        <div className="col-md-4 offset-md-2">
+          <h2>Yor are never along</h2>
+          <div className="text-secondary">Mental Health is not a destination,but a process.It's about how you drive,Not where you're going.</div>
+          <h6 className="mt-2">Book an Appointment with Professionals Now...</h6>
         </div>
       </main>
     </div>
