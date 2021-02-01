@@ -19,7 +19,22 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = data => {
-    console.log(data);
+    data.service = appointmentOn;
+    data.date = date;
+    data.created = new Date();
+
+    fetch('http://localhost:5000/addProfessionalAppointment', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(success => {
+        if (success) {
+          alert('Appointment created successfully.');
+          closeModal();
+        }
+      })
 
   }
   return (
@@ -36,7 +51,6 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
           <div className="form-group">
             <input type="text" ref={register({ required: true })} name="name" placeholder="Your Name" className="form-control" />
             {errors.name && <span className="text-danger">This field is required</span>}
-
           </div>
           <div className="form-group">
             <input type="text" ref={register({ required: true })} name="phone" placeholder="Phone Number" className="form-control" />
@@ -67,7 +81,10 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
               {errors.weight && <span className="text-danger">This field is required</span>}
             </div>
           </div>
-
+          <div className="form-group">
+            <textarea type="text" ref={register({ required: true })} name="details" placeholder="Details" className="form-control" />
+            {errors.name && <span className="text-danger">This field is required</span>}
+          </div>
           <div className="form-group text-right">
             <button type="submit" className="btn btn-brand">Send</button>
           </div>

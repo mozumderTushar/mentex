@@ -22,11 +22,11 @@ const BookAppointmentCard = ({ booking, date, handleDateChange }) => {
           </Accordion.Toggle>
         </Card.Header>
         <Accordion.Collapse eventKey="0">
-          <Card.Body>
+          <Card.Body className="appointment__card__body">
             <h5 className="card-title text-brand">{booking.subject}</h5>
             <h6>{booking.visitingHour}</h6>
             <p>{booking.totalSpace} SPACES AVAILABLE</p>
-            <button onClick={openModal} className="btn common__btn text-uppercase mt-2">Book Appointment</button>
+            <button onClick={openModal} className="btn common__btn text-uppercase mt-2 appointment__btn">Book Appointment</button>
             <BookAppointmentForm modalIsOpen={modalIsOpen} appointmentOn={booking.subject} closeModal={closeModal} date={date}></BookAppointmentForm>
           </Card.Body>
         </Accordion.Collapse>
