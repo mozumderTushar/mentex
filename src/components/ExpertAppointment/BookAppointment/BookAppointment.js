@@ -51,7 +51,7 @@ const BookAppointment = ({ date, handleDateChange }) => {
               bookingData.map(booking => <BookAppointmentCard booking={booking} date={date} key={booking.id}></BookAppointmentCard>)
             }
           </div>
-            <div className="col-md-4 offset-md-3">
+            <div className="col-md-4 offset-md-3 my-5">
               <Calendar
                 onChange={handleDateChange}
                 value={new Date()}
