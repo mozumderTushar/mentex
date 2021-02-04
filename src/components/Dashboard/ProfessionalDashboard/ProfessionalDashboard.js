@@ -16,7 +16,6 @@ const ProfessionalDashboard = () => {
 };
   return (
     <div className="dashboard__container">
-      <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
       <Main />
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
       
