@@ -1,7 +1,7 @@
 import React from 'react';
 import './Main.css'
 import hello from '../../assets/images/hello.png'
-import Chart from '../charts/Chart';
+import Chart from '../Charts/Chart';
 
 const Main = () => {
     return (
