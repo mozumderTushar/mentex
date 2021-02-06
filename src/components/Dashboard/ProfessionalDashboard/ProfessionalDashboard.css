@@ -15,6 +15,7 @@
 ::-webkit-scrollbar-thumb:hover{
     background: #a5aaad;
 }
+/*dashboard container*/
 .dashboard__container{
     background: #E8FCFA;
     display:grid;
