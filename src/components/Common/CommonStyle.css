@@ -46,7 +46,7 @@ html,body{
   color: #fff;
   background: #000;
   box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
-  transition-delay: 1s;
+  transition-delay: 0.2s;
 }
 .connect span{
   position: absolute;
@@ -61,7 +61,7 @@ html,body{
 }
 .connect:hover span:nth-child(1) {
   left: 100%;
-  transition: 1s;
+  transition: 0.5s;
 }
 .connect span:nth-child(3) {
   bottom: 0;

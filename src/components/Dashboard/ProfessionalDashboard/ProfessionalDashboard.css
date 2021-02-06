@@ -15,10 +15,9 @@
 ::-webkit-scrollbar-thumb:hover{
     background: #a5aaad;
 }
-body{
-    background: #E8FCFA;
-}
+/*dashboard container*/
 .dashboard__container{
+    background: #E8FCFA;
     display:grid;
     height: 100vh;
     grid-template-columns: 0.8fr 1fr 1fr 1fr;

@@ -19,13 +19,14 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
       <div className="sidebar__menu">
         <div className="sidebar__link active_menu_link">
           <i className="fa fa-home"></i>
-          <a href="#">Dashboard</a>
+          <Link to="/">Dashboard</Link>
         </div>
         <h2>MNG</h2>
         <div className="sidebar__link">
           <i className="fa fa-user-secret"></i>
           <Link to="/">Home</Link>
         </div>
+        
         <div className="sidebar__link">
         <i className="fab fa-atlassian"></i>
           <Link to="/post">Post</Link>
@@ -33,35 +34,27 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         <div className="sidebar__link">
           <i className="fas fa-book"></i>
           <Link to="/stories">Stories</Link>
-        </div>
-        <div className="sidebar__link">
-          <i className="fas fa-envelope-open-text"></i>
-          <Link to="/contact">Contact Us</Link>
-        </div>
+        </div>      
         <div className="sidebar__link">
           <i className="fas fa-list-alt"></i>
           <Link to="/dashboard/appointment/list">Appointment List</Link>
         </div>
         <h2>LEAVE</h2>
         <div className="sidebar__link">
-          <i className="fa fa-question"></i>
-          <a href="#">Requests</a>
+          <i className="fa fa-info-circle"></i>
+          <Link to="/about">About Us</Link>
         </div>
         <div className="sidebar__link">
-          <i className="fa fa-sign-out-alt"></i>
-          <a href="#">Leave Policy</a>
+          <i className="fas fa-envelope-open-text"></i>
+          <Link to="/contact">Contact Us</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-calendar-check"></i>
-          <a href="#">Special Days</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-file"></i>
-          <a href="#">Apply for Leave</a>
+          <Link to="/">Special Days</Link>
         </div>
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
-          <a href="#">Log out</a>
+          <Link to="/">Log out</Link>
         </div>
       </div>
     </div>

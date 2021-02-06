@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './ProfessionalDashboard.css'
-import Navbar from '../../Shared/NavBar/NavBar'
-import Main from '../main/Main'
-import Sidebar from '../sidebar/Sidebar'
+import ResponsiveSidebar from '../ResponsiveSidebar/ResponsiveSidebar'
+import Main from '../Main/Main'
+import Sidebar from '../Sidebar/Sidebar'
 
 const ProfessionalDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,6 +16,7 @@ const ProfessionalDashboard = () => {
 };
   return (
     <div className="dashboard__container">
+      <ResponsiveSidebar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
       <Main />
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
       
