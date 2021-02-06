@@ -13,7 +13,7 @@ import Footer from '../../Shared/Footer/Footer';
 
 const Login = () => {
 
-  const [setLoggedInUser] = useContext(UserContext)
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/" } };
@@ -34,8 +34,8 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function (result) {
-      const { displayName, email } = result.user;
-      const signedInUser = { name: displayName, email }
+      const { displayName, email, photoURL } = result.user;
+      const signedInUser = { name: displayName, email, photoURL }
       setLoggedInUser(signedInUser);
       storeAuthToken();
     }).catch(function (error) {
@@ -155,13 +155,13 @@ const Login = () => {
                   </Form.Group>
 
                   {!newUser && <Form.Group controlId="formBasicCheckbox" className="d-flex ">
-                    <Form.Check type="checkbox" label="Remember Me" className="remember__me"/> <p className="forgetPassword">Forget Password</p>
+                    <Form.Check type="checkbox" label="Remember Me" className="remember__me" /> <p className="forgetPassword">Forget Password</p>
                   </Form.Group>}
 
                   <input className="BtnDesign" type="submit" value={newUser ? 'Create an account' : 'Login'} />
 
                   {newUser ? <p>Already have an account?<span className="text-brand" onClick={() => setNewUser(!newUser)}>Login</span></p> :
-                    <p  className="text-brand">Don't have account?<span className="text-brand" onClick={() => setNewUser(!newUser)}>Create a account</span></p>}
+                    <p className="text-brand">Don't have account?<span className="text-brand" onClick={() => setNewUser(!newUser)}>Create a account</span></p>}
                 </Form>
               </Card.Body>
             </Card>

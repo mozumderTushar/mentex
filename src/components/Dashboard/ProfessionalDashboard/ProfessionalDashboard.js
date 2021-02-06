@@ -19,7 +19,6 @@ const ProfessionalDashboard = () => {
       <ResponsiveSidebar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
       <Main />
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
-      
     </div>
   );
 };
