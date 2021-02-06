@@ -26,7 +26,7 @@ const AddExpert = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('http://localhost:5000/addExpert', {
+    fetch('https://peaceful-lake-24732.herokuapp.com/addExpert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

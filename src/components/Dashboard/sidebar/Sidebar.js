@@ -10,7 +10,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => { /** Experts */
-    fetch('http://localhost:5000/allExperts')
+    fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
       .then(response => response.json())
       .then(data => {
         const isExpert = data.find(expert => expert.email === loggedInUser.email);
@@ -22,7 +22,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   }, [])
 
   useEffect(() => { /** Admin */
-    fetch('http://localhost:5000/allAdmins')
+    fetch('https://peaceful-lake-24732.herokuapp.com/allAdmins')
       .then(response => response.json())
       .then(data => {
         const isAdmin = data.find(admin => admin.email === loggedInUser.email);
