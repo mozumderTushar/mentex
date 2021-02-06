@@ -23,7 +23,7 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
     data.date = date;
     data.created = new Date();
 
-    fetch('http://localhost:5000/addProfessionalAppointment', {
+    fetch('https://peaceful-lake-24732.herokuapp.com/addProfessionalAppointment', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data)

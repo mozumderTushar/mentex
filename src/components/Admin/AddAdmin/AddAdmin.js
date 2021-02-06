@@ -26,7 +26,7 @@ const AddAdmin = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    fetch('http://localhost:5000/addAdmin', {
+    fetch('https://peaceful-lake-24732.herokuapp.com/addAdmin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
