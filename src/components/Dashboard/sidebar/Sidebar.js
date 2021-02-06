@@ -91,7 +91,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           (isAdmin && !isExpert) &&
           <div className="sidebar__link">
             <i className="fas fa-list-alt"></i>
-            <Link to="/AddAdmin">Add Admin</Link>
+            <Link to="/addAdmin">Add Admin</Link>
           </div>
         }
 
@@ -99,7 +99,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           (isAdmin && !isExpert) &&
           <div className="sidebar__link">
             <i className="fas fa-list-alt"></i>
-            <Link to="/dashboard/AddExperts">Add Experts</Link>
+            <Link to="/addExperts">Add Experts</Link>
           </div>
         }
 

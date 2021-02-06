@@ -14,6 +14,7 @@ import ExpertAppointment from '../ExpertAppointment/ExpertAppointment/ExpertAppo
 import Dashboard from '../Dashboard/Dashboard/Dashboard';
 import PrivateRoute from '../Login/PrivateRoute/PrivateRoute';
 import AddAdmin from '../Admin/AddAdmin/AddAdmin';
+import AddExpert from '../Admin/AddExpert/AddExpert';
 
 export const UserContext = createContext();
 function App() {
@@ -28,8 +29,8 @@ function App() {
           <Route path='/login'> <Login /> </Route>
           <Route path='/connectExpert'> <ExpertAppointment /> </Route>
           <PrivateRoute path='/dashboard'> <Dashboard /> </PrivateRoute>
-          <Route path='/AddAdmin'> <AddAdmin /> </Route>
-          <Route path='/dashboard/AddExperts'> <Login /> </Route>
+          <PrivateRoute path='/AddAdmin'> <AddAdmin /> </PrivateRoute>
+          <PrivateRoute path='/AddExperts'> <AddExpert /> </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>
