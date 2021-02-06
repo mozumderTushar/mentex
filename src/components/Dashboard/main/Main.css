@@ -11,9 +11,10 @@
     align-items: center;
 }
 .main__title >img{
-    max-height: 100px;
-    object-fit: contain;
-    margin-right: 20px;
+  max-height: 55px;
+  object-fit: contain;
+  margin-right: 20px;
+  border-radius: 25px;
 }
 .main__greeting >h1{
     font-size: 24px;

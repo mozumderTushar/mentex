@@ -12,6 +12,9 @@ import Contact from '../Contactus/Contact'
 import Login from '../Login/Login/Login';
 import ExpertAppointment from '../ExpertAppointment/ExpertAppointment/ExpertAppointment';
 import Dashboard from '../Dashboard/Dashboard/Dashboard';
+import PrivateRoute from '../Login/PrivateRoute/PrivateRoute';
+import AddAdmin from '../Admin/AddAdmin/AddAdmin';
+import AddExpert from '../Admin/AddExpert/AddExpert';
 
 export const UserContext = createContext();
 function App() {
@@ -25,7 +28,9 @@ function App() {
           <Route path='/contact'> <Contact /> </Route>
           <Route path='/login'> <Login /> </Route>
           <Route path='/connectExpert'> <ExpertAppointment /> </Route>
-          <Route path='/dashboard'> <Dashboard /> </Route>
+          <PrivateRoute path='/dashboard'> <Dashboard /> </PrivateRoute>
+          <PrivateRoute path='/AddAdmin'> <AddAdmin /> </PrivateRoute>
+          <PrivateRoute path='/AddExperts'> <AddExpert /> </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>

@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Main.css'
 import hello from '../../assets/images/hello.png'
 import Chart from '../Charts/Chart';
+import { UserContext } from '../../App/App';
 
 const Main = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  console.log('loggedInUser',loggedInUser);
     return (
         <main className="main-bg">
         <div className="main__container">
             <div className="main__title">
-                <img src={hello} alt="hello" />
+                <img src={loggedInUser.photoURL || hello} alt="hello" />
                 <div className="main__greeting">
-                    <h1>Hello MenTex</h1>
-                    <p>Welcome to your Professional Dashboard</p>
+                    <h1>Hello {loggedInUser.name}</h1>
+                    <p>Welcome To Your Dashboard</p>
                 </div>
             </div>
             <div className="main__cards">
