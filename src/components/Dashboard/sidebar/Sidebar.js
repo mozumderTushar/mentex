@@ -75,7 +75,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         {
           (isAdmin && !isExpert) &&
           <div className="sidebar__link">
-            <i className="fas fa-list-alt"></i>
+            <i className="fas fa-list"></i>
             <Link to="/adminList">Admin List</Link>
           </div>
         }
@@ -83,14 +83,14 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         {
           (isAdmin && !isExpert) &&
           <div className="sidebar__link">
-            <i className="fas fa-list-alt"></i>
+            <i className="fas fa-list"></i>
             <Link to="/expertList">Expert List</Link>
           </div>
         }
         {
           (isAdmin && !isExpert) &&
           <div className="sidebar__link">
-            <i className="fas fa-list-alt"></i>
+            <i className="fas fa-user-plus"></i>
             <Link to="/addAdmin">Add Admin</Link>
           </div>
         }
@@ -98,7 +98,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         {
           (isAdmin && !isExpert) &&
           <div className="sidebar__link">
-            <i className="fas fa-list-alt"></i>
+            <i className="fas fa-user-tie"></i>
             <Link to="/addExperts">Add Experts</Link>
           </div>
         }
@@ -106,12 +106,12 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         {
           (!isExpert && !isAdmin) &&
           <div className="sidebar__link">
-            <i className="fas fa-list-alt"></i>
-            <Link to="/dashboard/appointment/list">user List</Link>
+            <i className="fas fa-id-card"></i>
+            <Link to="/dashboard/appointment/list">User</Link>
           </div>
         }
 
-        <h2>LEAVE</h2>
+        <h2>INFO</h2>
         <div className="sidebar__link">
           <i className="fa fa-info-circle"></i>
           <Link to="/about">About Us</Link>

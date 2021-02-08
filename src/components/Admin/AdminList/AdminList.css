@@ -14,6 +14,9 @@
 }
 
 @media only screen and (min-width: 1025px) {
+  .table__banner{
+    display: none;
+  }
   .table__list{
     margin-top: 5%;
     width: 130vh;

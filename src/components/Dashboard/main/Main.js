@@ -43,10 +43,10 @@ const Main = () => {
                 </div>
 
                 <div className="card-main">
-                    <i className="fa fa-thumbs-up fa-2x text-green"></i>
+                    <i className="fa fa-users fa-2x text-green"></i>
                     <div className="card__inner">
-                        <p className="text-primary-p">Number Of Likes</p>
-                        <span className="font-bold text-title">645</span>
+                        <p className="text-primary-p">Number Of Admins</p>
+                        <span className="font-bold text-title">5</span>
                     </div>
                 </div>
 
@@ -57,7 +57,6 @@ const Main = () => {
                     <div className="charts__left__title">
                         <div>
                             <h1>Daily Reports</h1>
-                            <p>Cupertino, California, USA</p>
                         </div>
                         <i className="fa fa-usd"></i>
                     </div>
