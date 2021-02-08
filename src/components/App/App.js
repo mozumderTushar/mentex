@@ -15,6 +15,8 @@ import Dashboard from '../Dashboard/Dashboard/Dashboard';
 import PrivateRoute from '../Login/PrivateRoute/PrivateRoute';
 import AddAdmin from '../Admin/AddAdmin/AddAdmin';
 import AddExpert from '../Admin/AddExpert/AddExpert';
+import AdminList from '../Admin/AdminList/AdminList';
+import ExpertList from '../Admin/ExpertList/ExpertList';
 
 export const UserContext = createContext();
 function App() {
@@ -31,6 +33,8 @@ function App() {
           <PrivateRoute path='/dashboard'> <Dashboard /> </PrivateRoute>
           <PrivateRoute path='/AddAdmin'> <AddAdmin /> </PrivateRoute>
           <PrivateRoute path='/AddExperts'> <AddExpert /> </PrivateRoute>
+          <PrivateRoute path='/adminList'> <AdminList /> </PrivateRoute>
+          <PrivateRoute path='/expertList'> <ExpertList /> </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>

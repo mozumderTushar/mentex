@@ -3,11 +3,13 @@ import { UserContext } from '../../App/App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import ResponsiveSidebar from '../../Dashboard/ResponsiveSidebar/ResponsiveSidebar';
 import './AddAdmin.css'
+import { useHistory } from 'react-router-dom';
 
 const AddAdmin = () => {
   const [admin, setAdmin] = useState({})
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  let history = useHistory();
 
   const openSidebar = () => {
     setSidebarOpen(true);
@@ -38,6 +40,7 @@ const AddAdmin = () => {
         if (data) {
           alert('Admin Added Successfully')
           document.getElementById('email').value = '';
+          history.push('/adminList')
         }
       })
 

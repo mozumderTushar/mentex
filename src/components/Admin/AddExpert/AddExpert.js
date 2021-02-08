@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from '../../App/App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import ResponsiveSidebar from '../../Dashboard/ResponsiveSidebar/ResponsiveSidebar';
+import { useHistory } from 'react-router-dom';
 
 
 const AddExpert = () => {
   const [admin, setAdmin] = useState({})
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  let history = useHistory();
 
   const openSidebar = () => {
     setSidebarOpen(true);
@@ -38,6 +40,7 @@ const AddExpert = () => {
         if (data) {
           alert('Expert Added Successfully')
           document.getElementById('email').value = '';
+          history.push('/expertList')
         }
       })
 
