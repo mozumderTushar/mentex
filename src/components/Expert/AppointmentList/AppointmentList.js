@@ -1,20 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import './AdminList.css';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import ResponsiveSidebar from '../../Dashboard/ResponsiveSidebar/ResponsiveSidebar';
 import { UserContext } from '../../App/App';
-import AdminListTable from './AdminListTable';
+import AppointmentListTable from './AppointmentListTable';
 
-const AdminList = () => {
+const AppointmentList = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [adminList, setAdminList] = useState([])
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  const [appointmentList, setAppointmentList] = useState([])
 
   useEffect(() => {
-    fetch('https://peaceful-lake-24732.herokuapp.com/allAdmins')
+    fetch('https://peaceful-lake-24732.herokuapp.com/allAppointment')
       .then(res => res.json())
-      .then(data => setAdminList(data))
-  }, [adminList])
+      .then(data => setAppointmentList(data))
+  }, [])
 
   const openSidebar = () => {
     setSidebarOpen(true);
@@ -27,9 +25,9 @@ const AdminList = () => {
     <div className="dashboard__container">
       <ResponsiveSidebar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
-      <AdminListTable adminList={adminList} />
+      <AppointmentListTable appointmentList={appointmentList}/>
     </div>
   );
 };
 
-export default AdminList;
+export default AppointmentList;
