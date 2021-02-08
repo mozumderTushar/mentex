@@ -1,37 +1,32 @@
 import React from 'react';
-import './AdminList.css'
-const AdminListTable = ({ adminList }) => {
-  const deleteEvent = (id) => {
-    console.log('id', id);
-    fetch(`https://peaceful-lake-24732.herokuapp.com/deleteAdmin/${id}`, {
-      method: 'DELETE'
-    })
-      .then(response => response.json())
-      .then(result => {
-        if (result) {
-          console.log(result)
-        }
-      })
-  }
+
+const AppointmentListTable = ({appointmentList}) => {
+  console.log(appointmentList);
   return (
     <div className="table-responsive">
       <table class="table table-striped table-dark table__list">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Email</th>
-            <th scope="col">Id</th>
+            <th scope="col">Disease</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Details</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           {
-            adminList.map((admin, index) =>
-              <tr key={admin._id}>
+            appointmentList.map((appointment, index) =>
+              <tr key={appointment._id}>
                 <th scope="row">{index + 1}</th>
-                <td>{admin.email}</td>
-                <td>{admin._id}</td>
-                <td> <button type="button" onClick={() => deleteEvent(admin._id)} class="btn btn-danger">Remove</button></td>
+                <td>{appointment.service}</td>
+                <td>{appointment.name}</td>
+                <td>{appointment.age}</td>
+                <td>{appointment.weight}</td>
+                <td>{appointment.details}</td>
+                <td> <button type="button" class="btn btn-success">prescription</button></td>
               </tr>
             )
           }
@@ -47,4 +42,4 @@ const AdminListTable = ({ adminList }) => {
   );
 };
 
-export default AdminListTable;
+export default AppointmentListTable;

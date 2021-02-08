@@ -68,7 +68,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           (isExpert && !isAdmin) &&
           <div className="sidebar__link">
             <i className="fas fa-list-alt"></i>
-            <Link to="/dashboard/appointment/list">Appointment List</Link>
+            <Link to="/appointmentList">Appointment List</Link>
           </div>
         }
 
