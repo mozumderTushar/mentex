@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
+
 
 const customStyles = {
   content: {
@@ -17,6 +18,7 @@ Modal.setAppElement('#root')
 
 const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
   const { register, handleSubmit, errors } = useForm();
+
 
   const onSubmit = data => {
     data.service = appointmentOn;

@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ConfirmDialog from '../../Alert/ConfirmDialog/ConfirmDialog';
+import Notification from '../../Alert/Notification/Notification';
 import './AdminList.css'
+
 const AdminListTable = ({ adminList }) => {
-  const deleteEvent = (id) => {
-    console.log('id', id);
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: '',
+    type: '',
+  })
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    title: '',
+  })
+
+  const deleteEvent = (id) => { /* delete api*/
+    setConfirmDialog({
+      ...confirmDialog,
+      isOpen: false,
+    })
     fetch(`https://peaceful-lake-24732.herokuapp.com/deleteAdmin/${id}`, {
       method: 'DELETE'
     })
@@ -12,6 +28,11 @@ const AdminListTable = ({ adminList }) => {
           console.log(result)
         }
       })
+    setNotify({
+      isOpen: true,
+      message: 'Deleted Successfully',
+      type: 'error'
+    })
   }
   return (
     <div className="table-responsive">
@@ -31,11 +52,19 @@ const AdminListTable = ({ adminList }) => {
                 <th scope="row">{index + 1}</th>
                 <td>{admin.email}</td>
                 <td>{admin._id}</td>
-                <td> <button type="button" onClick={() => deleteEvent(admin._id)} class="btn btn-danger">Remove</button></td>
+                <td> <button type="button"
+                  onClick={() =>
+                    setConfirmDialog({
+                      isOpen: true,
+                      title: 'Are you sure to delete this record?',
+                      subTitle: "You can't undo this operation",
+                      onConfirm: () => { deleteEvent(admin._id) }
+                    })
+                  }
+                  class="btn btn-danger">Remove</button></td>
               </tr>
             )
           }
-
         </tbody>
       </table>
       <div className="table__banner row mt-3 mb-5 ml-3">
@@ -43,6 +72,8 @@ const AdminListTable = ({ adminList }) => {
         <p className="lead">“Anything that’s human is mentionable, and anything that is mentionable can be more manageable. When we can talk about our feelings, they become less overwhelming, less upsetting, and less scary.”</p>
         <p className="lead feel">Feel Free to contact with us...</p>
       </div>
+      <Notification notify={notify} setNotify={setNotify} />
+      <ConfirmDialog confirmDialog={confirmDialog} setConfirmDialog={setConfirmDialog} />
     </div>
   );
 };

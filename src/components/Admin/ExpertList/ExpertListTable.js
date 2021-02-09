@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ConfirmDialog from '../../Alert/ConfirmDialog/ConfirmDialog';
+import Notification from '../../Alert/Notification/Notification';
 
 const ExpertListTable = ({ expertList }) => {
-  const deleteEvent = (id) => {
-    console.log('id', id);
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: '',
+    type: '',
+  })
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    title: '',
+    subTitle: '',
+  })
+
+  const deleteEvent = (id) => { /* delete api*/
+    setConfirmDialog({
+      ...confirmDialog,
+      isOpen: false,
+    })
     fetch(`https://peaceful-lake-24732.herokuapp.com/deleteExpert/${id}`, {
       method: 'DELETE'
     })
@@ -12,6 +28,11 @@ const ExpertListTable = ({ expertList }) => {
           console.log(result)
         }
       })
+    setNotify({
+      isOpen: true,
+      message: 'Deleted Successfully',
+      type: 'error'
+    })
   }
   return (
     <div className="table-responsive">
@@ -31,13 +52,23 @@ const ExpertListTable = ({ expertList }) => {
                 <th scope="row">{index + 1}</th>
                 <td>{expert.email}</td>
                 <td>{expert._id}</td>
-                <td> <button type="button" onClick={() => deleteEvent(expert._id)} class="btn btn-danger">Remove</button></td>
+                <td> <button type="button"
+                  onClick={() =>
+                    setConfirmDialog({
+                      isOpen: true,
+                      title: 'Are you sure to delete this record?',
+                      subTitle: "You can't undo this operation",
+                      onConfirm: () => { deleteEvent(expert._id) }
+                    })
+                  }
+                  class="btn btn-danger">Remove</button></td>
               </tr>
             )
           }
-
         </tbody>
       </table>
+      <Notification notify={notify} setNotify={setNotify} />
+      <ConfirmDialog confirmDialog={confirmDialog} setConfirmDialog={setConfirmDialog} />
     </div>
   );
 };
