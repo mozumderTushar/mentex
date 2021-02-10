@@ -18,7 +18,7 @@ const About = () => {
               <p class="lead text-center why-slogan">You don't have to struggle in silence!Think Less,Sleep Better.Be Happier...</p>
             </div>
           </div>
-          <div className="col-md-6 mt-5 pt-3">
+          <div className="col-md-6 mt-lg-5 pt-lg-3">
             <div id="accordion" class="mt-3 text-center" role="tablist">
               <div class="card">
                 <div class="card-header" role="tab">
