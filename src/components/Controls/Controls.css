@@ -1,0 +1,15 @@
+.select__container{
+  width: 100%;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 280px) {
+  .MuiFormControl-root.select__container {
+    margin: 10%;
+}
+}
+@media only screen and (min-width: 1025px) {
+  .MuiFormControl-root.select__container {
+    margin: 3%;
+}
+
+}
