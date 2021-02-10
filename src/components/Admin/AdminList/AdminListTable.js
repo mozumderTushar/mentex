@@ -61,7 +61,7 @@ const AdminListTable = ({ adminList }) => {
                       onConfirm: () => { deleteEvent(admin._id) }
                     })
                   }
-                  class="btn btn-danger">Remove</button></td>
+                  class="btn btn-danger"><i className="fas fa-trash"></i></button></td>
               </tr>
             )
           }

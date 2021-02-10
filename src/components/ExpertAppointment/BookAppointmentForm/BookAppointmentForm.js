@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
-
+import FormMaterialUi from '../../FormMaterialUi/FormMaterialUi'
 
 const customStyles = {
   content: {
@@ -49,6 +49,8 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
       >
         <h2 className="text-center text-brand">{appointmentOn}</h2>
         <p className="text-secondary text-center"><small>ON {date.toDateString()}</small></p>
+        {/* <h2 className="text-center text-brand">{appointmentOn}</h2>
+        <p className="text-secondary text-center"><small>ON {date.toDateString()}</small></p>
         <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">
             <input type="text" ref={register({ required: true })} name="name" placeholder="Your Name" className="form-control" />
@@ -90,7 +92,8 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
           <div className="form-group text-right">
             <button type="submit" className="btn btn-brand">Send</button>
           </div>
-        </form>
+        </form> */}
+        <FormMaterialUi />
       </Modal>
     </div>
   );
