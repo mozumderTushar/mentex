@@ -36,7 +36,7 @@ function App() {
           <PrivateRoute path='/AddExperts'> <AddExpert /> </PrivateRoute>
           <PrivateRoute path='/adminList'> <AdminList /> </PrivateRoute>
           <PrivateRoute path='/expertList'> <ExpertList /> </PrivateRoute>
-          <Route path='/appointmentList'> <AppointmentList /> </Route>
+          <PrivateRoute path='/appointmentList'> <AppointmentList /> </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>
