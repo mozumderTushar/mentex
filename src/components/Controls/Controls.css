@@ -4,12 +4,17 @@
 
 @media only screen and (min-width: 0px) and (max-width: 280px) {
   .MuiFormControl-root.select__container {
-    margin: 10%;
+    margin: 8px;
+}
+}
+@media only screen and (min-width: 281px) and (max-width: 1024px) {
+  .MuiFormControl-root.select__container {
+    margin: 8px;
 }
 }
 @media only screen and (min-width: 1025px) {
   .MuiFormControl-root.select__container {
-    margin: 3%;
+    margin: 8px;
 }
 
 }

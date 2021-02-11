@@ -67,6 +67,11 @@ const ExpertListTable = ({ expertList }) => {
           }
         </tbody>
       </table>
+      <div className="table__banner row mt-3 mb-5 ml-3">
+        <h3 className="about-title">Get In Touch</h3>
+        <p className="lead">“Anything that’s human is mentionable, and anything that is mentionable can be more manageable. When we can talk about our feelings, they become less overwhelming, less upsetting, and less scary.”</p>
+        <p className="lead feel">Feel Free to contact with us...</p>
+      </div>
       <Notification notify={notify} setNotify={setNotify} />
       <ConfirmDialog confirmDialog={confirmDialog} setConfirmDialog={setConfirmDialog} />
     </div>

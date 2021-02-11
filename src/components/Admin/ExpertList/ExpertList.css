@@ -1,0 +1,28 @@
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  .table__list{
+    margin-top: 30%;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .table__list{
+    margin-top: 20%;
+    width: 48vh;
+    margin-left: 5%;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .table__banner{
+    display: none;
+  }
+  .table__list{
+    margin-top: 5%;
+    width: 130vh;
+    margin-left: 10%;
+  }
+  .table-responsive{
+    width: 150vh;
+  }
+}

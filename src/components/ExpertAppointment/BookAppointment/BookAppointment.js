@@ -6,7 +6,7 @@ const bookingData = [
   {
     _id: '5e8df50be6e8231764dc23de',
     id: 1,
-    subject: 'Schizoaffective disorder',
+    subject: 'Schizoaffective Disorder',
     visitingHour: '8:00 AM - 9:00 AM',
     totalSpace: 10
   },
@@ -46,12 +46,12 @@ const BookAppointment = ({ date, handleDateChange }) => {
       <h2 className=" text-center text-brand mb-5">Available Appointments on {date.toDateString()}</h2>
       <div className="container">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-6">
             {
               bookingData.map(booking => <BookAppointmentCard booking={booking} date={date} key={booking.id}></BookAppointmentCard>)
             }
           </div>
-            <div className="col-md-4 offset-md-3 my-5">
+            <div className="col-md-4 offset-md-2 my-5">
               <Calendar
                 onChange={handleDateChange}
                 value={new Date()}
