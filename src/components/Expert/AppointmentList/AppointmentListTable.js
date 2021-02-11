@@ -1,9 +1,57 @@
 import React from 'react';
+import Dialog from '@material-ui/core/Dialog';
+import { withStyles } from '@material-ui/core/styles';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Typography from '@material-ui/core/Typography';
 
-const AppointmentListTable = ({ appointmentList }) => {
-  console.log(appointmentList);
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+});
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, body }) => {
   return (
     <div className="table-responsive">
+      <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+          Full Description
+        </DialogTitle>
+        <DialogContent dividers>
+          <Typography gutterBottom >
+            {body}
+          </Typography>
+        </DialogContent>
+      </Dialog>
       <table class="table table-striped table-dark table__list">
         <thead>
           <tr>
@@ -25,24 +73,9 @@ const AppointmentListTable = ({ appointmentList }) => {
                 <td>{appointment.name}</td>
                 <td>{appointment.age}</td>
                 <td>{appointment.weight}</td>
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title  text-dark" id="exampleModalLongTitle">Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body text-dark">
-                        {appointment.details}
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 {
                   appointment.details.length > 100 ? <td>{appointment.details.substring(0, 100)}
-                    <a data-toggle="modal" data-target="#exampleModalLong" className="ml-2" style={{ color: '#5F81C8', cursor: 'pointer' }}>
+                    <a onClick={() => handleOpen(appointment._id)} style={{ color: '#5F81C8', cursor: 'pointer' }}>
                       See More
                     </a>
                   </td>
@@ -63,5 +96,4 @@ const AppointmentListTable = ({ appointmentList }) => {
     </div>
   );
 };
-
 export default AppointmentListTable;

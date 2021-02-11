@@ -7,6 +7,26 @@ import AppointmentListTable from './AppointmentListTable';
 const AppointmentList = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [appointmentList, setAppointmentList] = useState([])
+  const [open, setOpen] = useState(false);
+  const [appointment, setAppointment] = useState([])
+  const [appointmentDetails, setAppointmentDetails] = useState([])
+
+  useEffect(() => {
+    appointmentList.map(details => {
+      if (details._id === appointment) {
+        setAppointmentDetails(details.details)
+      }
+    })
+  })
+
+  const handleOpen = (id) => {
+    setOpen(true);
+    setAppointment(id)
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allAppointment')
@@ -25,7 +45,7 @@ const AppointmentList = () => {
     <div className="dashboard__container">
       <ResponsiveSidebar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
-      <AppointmentListTable appointmentList={appointmentList}/>
+      <AppointmentListTable appointmentList={appointmentList} handleOpen={handleOpen} handleClose={handleClose} open={open} body={appointmentDetails} />
     </div>
   );
 };
