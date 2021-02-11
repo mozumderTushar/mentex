@@ -1,9 +1,17 @@
 import React from 'react';
+import Modal from '@material-ui/core/Modal';
 
-const AppointmentListTable = ({ appointmentList }) => {
-  console.log(appointmentList);
+const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, body }) => {
   return (
     <div className="table-responsive">
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
       <table class="table table-striped table-dark table__list">
         <thead>
           <tr>
@@ -25,24 +33,9 @@ const AppointmentListTable = ({ appointmentList }) => {
                 <td>{appointment.name}</td>
                 <td>{appointment.age}</td>
                 <td>{appointment.weight}</td>
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title  text-dark" id="exampleModalLongTitle">Details</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body text-dark">
-                        {appointment.details}
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 {
                   appointment.details.length > 100 ? <td>{appointment.details.substring(0, 100)}
-                    <a data-toggle="modal" data-target="#exampleModalLong" className="ml-2" style={{ color: '#5F81C8', cursor: 'pointer' }}>
+                    <a onClick={() => handleOpen(appointment._id)} style={{ color: '#5F81C8', cursor: 'pointer' }}>
                       See More
                     </a>
                   </td>
