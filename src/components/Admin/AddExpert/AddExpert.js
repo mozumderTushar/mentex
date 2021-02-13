@@ -3,9 +3,21 @@ import { UserContext } from '../../App/App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import ResponsiveSidebar from '../../Dashboard/ResponsiveSidebar/ResponsiveSidebar';
 import { useHistory } from 'react-router-dom';
+import ConfirmDialog from '../../Alert/ConfirmDialog/ConfirmDialog';
+import Notification from '../../Alert/Notification/Notification';
 
 
 const AddExpert = () => {
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: '',
+    type: '',
+  })
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    title: '',
+    subTitle: '',
+  })
   const [admin, setAdmin] = useState({})
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -38,9 +50,20 @@ const AddExpert = () => {
       .then(response => response.json())
       .then(data => {
         if (data) {
-          alert('Expert Added Successfully')
-          document.getElementById('email').value = '';
-          history.push('/expertList')
+          // alert('Expert Added Successfully')
+          setNotify({
+            isOpen: true,
+            message: 'Expert Added Successfully',
+            type: 'success'
+          })
+          // document.getElementById('email').value = '';
+            setConfirmDialog({
+              isOpen: true,
+              title: 'Do You Want To See The Expert List?',
+              subTitle: "You can't undo this operation",
+              onConfirm: () => {  history.push('/expertList') }
+            })
+          // history.push('/expertList')
         }
       })
 
@@ -56,6 +79,8 @@ const AddExpert = () => {
       </div>
       <ResponsiveSidebar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
+      <Notification notify={notify} setNotify={setNotify} />
+      <ConfirmDialog confirmDialog={confirmDialog} setConfirmDialog={setConfirmDialog} />
     </div>
   );
 };
