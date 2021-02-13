@@ -4,6 +4,8 @@ import Icon from '@material-ui/core/Icon';
 import Controls from "../Controls/Controls";
 import { useForm, Form } from './useForm'
 import { makeStyles } from '@material-ui/core/styles';
+import Notification from '../Alert/Notification/Notification';
+import ConfirmDialog from '../Alert/ConfirmDialog/ConfirmDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +36,16 @@ const initialFValues = {
 }
 
 export default function FormMaterialUi(props) {
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: '',
+    type: '',
+  })
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    title: '',
+    subTitle: '',
+  })
   const classes = useStyles()
 
   const validate = (fieldValues = values) => {
@@ -75,10 +87,15 @@ export default function FormMaterialUi(props) {
         .then(res => res.json())
         .then(success => {
           if (success) {
-            alert('Appointment created successfully.');
-            props.closeModal();
+            // alert('Appointment created successfully.');
           }
         })
+        setNotify({
+          isOpen: true,
+          message: 'Appointment Added Successfully',
+          type: 'success'
+        })
+        setTimeout(function(){ props.closeModal(); }, 2000);
       resetForm();
     }
   }
@@ -158,6 +175,8 @@ export default function FormMaterialUi(props) {
             endIcon={<Icon>send</Icon>} />
         </div>
       </Grid>
+      <Notification notify={notify} setNotify={setNotify} />
+      <ConfirmDialog confirmDialog={confirmDialog} setConfirmDialog={setConfirmDialog} />
     </Form>
   )
 }
