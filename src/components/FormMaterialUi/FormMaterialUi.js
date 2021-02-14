@@ -26,7 +26,7 @@ const genderItems = [
 ]
 
 const initialFValues = {
-  fullName: '',
+  name: '',
   email: '',
   mobile: '',
   age: '',
@@ -50,12 +50,20 @@ export default function FormMaterialUi(props) {
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors }
-    if ('fullName' in fieldValues)
-      temp.fullName = fieldValues.fullName ? "" : "This field is required."
+    if ('name' in fieldValues)
+      temp.name = fieldValues.name ? "" : "This field is required."
     if ('email' in fieldValues)
       temp.email = (/$^|.+@.+..+/).test(fieldValues.email) ? "" : "Email is not valid."
     if ('mobile' in fieldValues)
-      temp.mobile = fieldValues.mobile.length > 9 ? "" : "Minimum 10 numbers required."
+      temp.mobile = fieldValues.mobile.length > 10 ? "" : "11 numbers required."
+    if ('gender' in fieldValues)
+      temp.gender = fieldValues.gender ? "" : "This field is required."
+    if ('age' in fieldValues)
+      temp.age = fieldValues.age ? "" : "Select Your age."
+    if ('weight' in fieldValues)
+      temp.weight = fieldValues.weight ? "" : "Select Your weight."
+    if ('details' in fieldValues)
+      temp.details = fieldValues.details.length > 0 ? "" : "Add your details."
     setErrors({
       ...temp
     })
@@ -105,11 +113,11 @@ export default function FormMaterialUi(props) {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Controls.Input
-            name="fullName"
-            label="Full Name"
-            value={values.fullName}
+            name="name"
+            label="Name"
+            value={values.name}
             onChange={handleInputChange}
-            error={errors.fullName}
+            error={errors.name}
           />
         </Grid>
         <Grid item xs={12}>
@@ -137,6 +145,7 @@ export default function FormMaterialUi(props) {
             options={genderItems}
             value={values.gender}
             onChange={handleInputChange}
+            error={errors.gender}
           />
         </Grid>
         <Grid item xs={4}>
@@ -146,6 +155,7 @@ export default function FormMaterialUi(props) {
             name="age"
             value={values.age}
             onChange={handleInputChange}
+            error={errors.age}
           />
         </Grid>
         <Grid item xs={4}>
@@ -155,6 +165,7 @@ export default function FormMaterialUi(props) {
             name="weight"
             value={values.weight}
             onChange={handleInputChange}
+            error={errors.weight}
           />
         </Grid>
         <Grid item xs={12}>
@@ -165,6 +176,7 @@ export default function FormMaterialUi(props) {
             row="4"
             value={values.details}
             onChange={handleInputChange}
+            error={errors.details}
           />
         </Grid>
         <div>

@@ -6,7 +6,7 @@ export default function Input(props) {
   const { name, label, value, error = null, onChange, type, multiline, row } = props;
   return (
     <TextField
-      variant="outlined"
+      variant="filled"
       label={label}
       name={name}
       value={value}

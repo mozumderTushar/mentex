@@ -41,7 +41,8 @@ const ExpertListTable = ({ expertList }) => {
           <tr>
             <th scope="col">#</th>
             <th scope="col">Email</th>
-            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mobile</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -51,7 +52,8 @@ const ExpertListTable = ({ expertList }) => {
               <tr key={expert._id}>
                 <th scope="row">{index + 1}</th>
                 <td>{expert.email}</td>
-                <td>{expert._id}</td>
+                <td>{expert.fullName}</td>
+                <td>{expert.mobile}</td>
                 <td> <button type="button"
                   onClick={() =>
                     setConfirmDialog({
