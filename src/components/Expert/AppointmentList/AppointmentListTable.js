@@ -40,6 +40,7 @@ const DialogContent = withStyles((theme) => ({
 }))(MuiDialogContent);
 
 const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, body }) => {
+  console.log(appointmentList);
   return (
     <div className="table-responsive">
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>

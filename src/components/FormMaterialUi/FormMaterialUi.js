@@ -26,7 +26,7 @@ const genderItems = [
 ]
 
 const initialFValues = {
-  fullName: '',
+  name: '',
   email: '',
   mobile: '',
   age: '',
@@ -50,8 +50,8 @@ export default function FormMaterialUi(props) {
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors }
-    if ('fullName' in fieldValues)
-      temp.fullName = fieldValues.fullName ? "" : "This field is required."
+    if ('name' in fieldValues)
+      temp.name = fieldValues.name ? "" : "This field is required."
     if ('email' in fieldValues)
       temp.email = (/$^|.+@.+..+/).test(fieldValues.email) ? "" : "Email is not valid."
     if ('mobile' in fieldValues)
@@ -113,11 +113,11 @@ export default function FormMaterialUi(props) {
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Controls.Input
-            name="fullName"
-            label="Full Name"
-            value={values.fullName}
+            name="name"
+            label="Name"
+            value={values.name}
             onChange={handleInputChange}
-            error={errors.fullName}
+            error={errors.name}
           />
         </Grid>
         <Grid item xs={12}>

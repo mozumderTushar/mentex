@@ -41,7 +41,8 @@ const AdminListTable = ({ adminList }) => {
           <tr>
             <th scope="col">#</th>
             <th scope="col">Email</th>
-            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mobile</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -51,7 +52,8 @@ const AdminListTable = ({ adminList }) => {
               <tr key={admin._id}>
                 <th scope="row">{index + 1}</th>
                 <td>{admin.email}</td>
-                <td>{admin._id}</td>
+                <td>{admin.fullName}</td>
+                <td>{admin.mobile}</td>
                 <td> <button type="button"
                   onClick={() =>
                     setConfirmDialog({
