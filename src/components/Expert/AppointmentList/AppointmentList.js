@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import ResponsiveSidebar from '../../Dashboard/ResponsiveSidebar/ResponsiveSidebar';
 import { UserContext } from '../../App/App';
@@ -10,6 +10,8 @@ const AppointmentList = () => {
   const [open, setOpen] = useState(false);
   const [appointment, setAppointment] = useState([])
   const [appointmentDetails, setAppointmentDetails] = useState([])
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  const userLoggedInSession = sessionStorage.getItem('email');
 
   useEffect(() => {
     appointmentList.map(details => {
@@ -31,7 +33,10 @@ const AppointmentList = () => {
   useEffect(() => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allAppointment')
       .then(res => res.json())
-      .then(data => setAppointmentList(data))
+      .then(data => {
+        const SingleAppointment = data.filter(single => single.professional === (loggedInUser.email || userLoggedInSession) )
+        setAppointmentList(SingleAppointment)
+      })
   }, [])
 
   const openSidebar = () => {

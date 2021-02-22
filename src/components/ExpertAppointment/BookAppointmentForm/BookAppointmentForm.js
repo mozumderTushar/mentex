@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
 import FormMaterialUi from '../../FormMaterialUi/FormMaterialUi';
@@ -19,6 +19,13 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
+  const [professional, setProfessional] = useState([]);
+  useEffect(() => {
+    fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
+      .then(res => res.json())
+      .then(data => setProfessional(data))
+  }, [])
+
   return (
     <div>
       <Modal
@@ -29,7 +36,7 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
       >
         <h2 className="text-center text-brand">{appointmentOn}</h2>
         <p className="text-secondary text-center"><small>ON {date.toDateString()}</small></p>
-        <FormMaterialUi appointmentOn={appointmentOn} date={date} closeModal={closeModal}/>
+        <FormMaterialUi appointmentOn={appointmentOn} date={date} closeModal={closeModal} professional={professional}/>
       </Modal>
     </div>
   );

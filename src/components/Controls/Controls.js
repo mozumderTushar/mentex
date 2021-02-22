@@ -10,7 +10,6 @@ const Controls = {
     Select,
     DatePicker,
     Button
-
 }
 
 export default Controls;

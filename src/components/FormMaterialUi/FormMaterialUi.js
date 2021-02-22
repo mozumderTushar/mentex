@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-
 const genderItems = [
   { id: '1', title: 'Male' },
   { id: '2', title: 'Female' },
   { id: '3', title: 'Other' },
 ]
+
 
 const initialFValues = {
   name: '',
@@ -32,10 +32,12 @@ const initialFValues = {
   age: '',
   gender: '',
   weight: '',
+  professional: '',
   details: '',
 }
 
 export default function FormMaterialUi(props) {
+ 
   const [notify, setNotify] = useState({
     isOpen: false,
     message: '',
@@ -62,6 +64,8 @@ export default function FormMaterialUi(props) {
       temp.age = fieldValues.age ? "" : "Select Your age."
     if ('weight' in fieldValues)
       temp.weight = fieldValues.weight ? "" : "Select Your weight."
+    if ('professional' in fieldValues)
+      temp.professional = fieldValues.professional ? "" : "Select Your professional."
     if ('details' in fieldValues)
       temp.details = fieldValues.details.length > 0 ? "" : "Add your details."
     setErrors({
@@ -98,12 +102,12 @@ export default function FormMaterialUi(props) {
             // alert('Appointment created successfully.');
           }
         })
-        setNotify({
-          isOpen: true,
-          message: 'Appointment Added Successfully',
-          type: 'success'
-        })
-        setTimeout(function(){ props.closeModal(); }, 2000);
+      setNotify({
+        isOpen: true,
+        message: 'Appointment Added Successfully',
+        type: 'success'
+      })
+      setTimeout(function () { props.closeModal(); }, 2000);
       resetForm();
     }
   }
@@ -138,7 +142,7 @@ export default function FormMaterialUi(props) {
             error={errors.mobile}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <Controls.Select
             label="Gender"
             name="gender"
@@ -148,7 +152,7 @@ export default function FormMaterialUi(props) {
             error={errors.gender}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <Controls.Input
             type="number"
             label="Age"
@@ -158,7 +162,7 @@ export default function FormMaterialUi(props) {
             error={errors.age}
           />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <Controls.Input
             type="number"
             label="Weight"
@@ -166,6 +170,16 @@ export default function FormMaterialUi(props) {
             value={values.weight}
             onChange={handleInputChange}
             error={errors.weight}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <Controls.Select
+            label="Select Professional"
+            name="professional"
+            options={props.professional}
+            value={values.professional}
+            onChange={handleInputChange}
+            error={errors.professional}
           />
         </Grid>
         <Grid item xs={12}>
