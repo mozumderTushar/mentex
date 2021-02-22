@@ -8,12 +8,13 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [isExpert, setIsExpert] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
+  const userLoggedInSession = sessionStorage.getItem('email');
 
   useEffect(() => { /** Experts */
     fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
       .then(response => response.json())
       .then(data => {
-        const isExpert = data.find(expert => expert.email === loggedInUser.email);
+        const isExpert = data.find(expert => expert.email === (loggedInUser.email || userLoggedInSession));
         if (isExpert) {
           setIsExpert(true)
           setIsAdmin(false)
@@ -25,7 +26,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allAdmins')
       .then(response => response.json())
       .then(data => {
-        const isAdmin = data.find(admin => admin.email === loggedInUser.email);
+        const isAdmin = data.find(admin => admin.email === (loggedInUser.email || userLoggedInSession));
         if (isAdmin) {
           setIsAdmin(true)
           setIsExpert(false)
@@ -33,6 +34,10 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
       })
   }, [])
 
+  const deleteItems = () => {
+    sessionStorage.clear();
+    window.location.reload();
+  }
   return (
     <div className={sidebarOpen ? "sidebar-responsive" : ""} id="sidebar">
       <div className="sidebar__title">
@@ -126,7 +131,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         </div>
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
-          <Link to="/">Log out</Link>
+          <a onClick={deleteItems} style={{cursor:'pointer'}}>Log out</a>
         </div>
       </div>
     </div >

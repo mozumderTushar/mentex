@@ -20,9 +20,10 @@ export default function Select(props) {
         onChange={onChange}>
         {
           options.map(
-            item => (<MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>)
+            item => (<MenuItem key={item.id||item._id} value={item.id||item.email}>{item.title||item.fullName}</MenuItem>)
           )
         }
+
       </MuiSelect>
       {error && <FormHelperText>{error}</FormHelperText>}
     </FormControl>
