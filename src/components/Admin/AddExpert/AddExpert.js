@@ -111,6 +111,7 @@ const AddExpert = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (validate()) {
 
     fetch('https://peaceful-lake-24732.herokuapp.com/addExpert', {
       method: 'POST',
@@ -139,6 +140,7 @@ const AddExpert = () => {
         }
       })
     resetForm();
+    }
   }
   return (
     <div className="dashboard__container">

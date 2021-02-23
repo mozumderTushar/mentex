@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import { withStyles } from '@material-ui/core/styles';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -6,6 +6,7 @@ import MuiDialogContent from '@material-ui/core/DialogContent';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import PrescriptionModal from './PrescriptionModal';
 
 const styles = (theme) => ({
   root: {
@@ -40,6 +41,14 @@ const DialogContent = withStyles((theme) => ({
 }))(MuiDialogContent);
 
 const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, body }) => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   console.log(appointmentList);
   return (
     <div className="table-responsive">
@@ -83,12 +92,13 @@ const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, 
                     :
                     <td>{appointment.details}</td>
                 }
-                <td> <button type="button" class="btn btn-success">prescription</button></td>
+                <td> <button type="button" onClick={openModal} className="btn btn-success">prescription</button></td>
               </tr>
             )
           }
         </tbody>
       </table>
+      <PrescriptionModal modalIsOpen={modalIsOpen} closeModal={closeModal}></PrescriptionModal>
       <div className="table__banner row mt-3 mb-5 ml-3">
         <h3 className="about-title">Get In Touch</h3>
         <p className="lead">“Anything that’s human is mentionable, and anything that is mentionable can be more manageable. When we can talk about our feelings, they become less overwhelming, less upsetting, and less scary.”</p>

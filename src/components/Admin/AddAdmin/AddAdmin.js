@@ -104,6 +104,7 @@ const AddAdmin = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (validate()) {
 
     fetch('https://peaceful-lake-24732.herokuapp.com/addAdmin', {
       method: 'POST',
@@ -131,6 +132,7 @@ const AddAdmin = () => {
         }
       })
     resetForm();
+    }
   }
   return (
     <div className="dashboard__container">
