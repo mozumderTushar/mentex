@@ -4,6 +4,7 @@ import Icon from '@material-ui/core/Icon';
 import Controls from "../../Controls/Controls";
 import { useForm, Form } from '../../FormMaterialUi/useForm'
 import { makeStyles } from '@material-ui/core/styles';
+import Notification from '../../Alert/Notification/Notification';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,10 +20,15 @@ const useStyles = makeStyles((theme) => ({
 
 const initialFValues = {
   prescription: '',
+  prescriptionID: '',
 }
 
-export default function PrescriptionForm() {
-
+export default function PrescriptionForm({ prescriptionID, closeModal }) {
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: '',
+    type: '',
+  })
   const classes = useStyles()
 
   const validate = (fieldValues = values) => {
@@ -48,8 +54,9 @@ export default function PrescriptionForm() {
   const handleSubmit = e => {
     e.preventDefault()
     if (validate()) {
+      values.prescriptionID = prescriptionID;
 
-      fetch('http://localhost:5000/addPrescription', {
+      fetch('https://peaceful-lake-24732.herokuapp.com/addPrescription', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(values)
@@ -57,10 +64,17 @@ export default function PrescriptionForm() {
         .then(res => res.json())
         .then(success => {
           if (success) {
-             alert('Prescription created successfully.');
+            //  alert('Prescription Added successfully.');
           }
         })
+      setNotify({
+        isOpen: true,
+        message: 'Prescription Added Successfully',
+        type: 'success'
+      })
+      setTimeout(function () { closeModal(); }, 2000);
       resetForm();
+
     }
   }
 
@@ -86,6 +100,7 @@ export default function PrescriptionForm() {
             endIcon={<Icon>send</Icon>} />
         </div>
       </Grid>
+      <Notification notify={notify} setNotify={setNotify} />
     </Form>
   )
 }

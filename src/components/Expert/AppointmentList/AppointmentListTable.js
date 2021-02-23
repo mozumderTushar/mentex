@@ -42,8 +42,10 @@ const DialogContent = withStyles((theme) => ({
 
 const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, body }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
+  const [prescriptionID, setPrescriptionID] = useState();
+  function openModal(id) {
     setIsOpen(true);
+    setPrescriptionID(id)
   }
 
   function closeModal() {
@@ -92,13 +94,13 @@ const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, 
                     :
                     <td>{appointment.details}</td>
                 }
-                <td> <button type="button" onClick={openModal} className="btn btn-success">prescription</button></td>
+                <td> <button type="button" onClick={()=>openModal(appointment._id)} className="btn btn-success">prescription</button></td>
               </tr>
             )
           }
         </tbody>
       </table>
-      <PrescriptionModal modalIsOpen={modalIsOpen} closeModal={closeModal}></PrescriptionModal>
+      <PrescriptionModal modalIsOpen={modalIsOpen} closeModal={closeModal} prescriptionID={prescriptionID}></PrescriptionModal>
       <div className="table__banner row mt-3 mb-5 ml-3">
         <h3 className="about-title">Get In Touch</h3>
         <p className="lead">“Anything that’s human is mentionable, and anything that is mentionable can be more manageable. When we can talk about our feelings, they become less overwhelming, less upsetting, and less scary.”</p>
