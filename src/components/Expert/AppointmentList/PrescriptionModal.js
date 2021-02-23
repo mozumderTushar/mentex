@@ -16,14 +16,7 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-const PrescriptionModal = ({ modalIsOpen, closeModal }) => {
-  // // const [professional, setProfessional] = useState([]);
-  // // useEffect(() => {
-  // //   fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
-  // //     .then(res => res.json())
-  // //     .then(data => setProfessional(data))
-  // }, [])
-
+const PrescriptionModal = ({ modalIsOpen, closeModal, prescriptionID }) => {
   return (
     <div>
       <Modal
@@ -32,7 +25,7 @@ const PrescriptionModal = ({ modalIsOpen, closeModal }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <PrescriptionForm closeModal={closeModal} />
+        <PrescriptionForm closeModal={closeModal} prescriptionID={prescriptionID}/>
       </Modal>
     </div>
   );
