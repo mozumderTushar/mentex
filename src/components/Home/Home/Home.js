@@ -4,11 +4,13 @@ import Blog from '../Blog/Blog';
 import ConnectWithExperts from '../ConnectWithExperts/ConnectWithExperts';
 import Contact from '../Contact/Contact';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
+import OurExpert from '../OurExpert/OurExpert';
 
 const Home = () => {
   return (
     <div>
       <HeaderContainer />
+      <OurExpert />
       <ConnectWithExperts />
       <Blog />
       <Contact />
