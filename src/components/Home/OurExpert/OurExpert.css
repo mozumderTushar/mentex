@@ -22,6 +22,10 @@
   text-decoration: none
 }
 
+.expert_details_container{
+  height: 110vh;
+}
+
 @media only screen and (min-width:0px) and (max-width: 360px){
   .bg{
     margin-top: -6%;
