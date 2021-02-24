@@ -1,0 +1,44 @@
+.bg{
+  /* background-image: url("https://i.ibb.co/nmdRCnF/Rectangle-1.png"); */
+  background:url(https://i.ibb.co/nmdRCnF/Rectangle-1.png) rgba(14, 13, 13, 0.3);
+  background-repeat: no-repeat;
+  background-size:cover;
+  min-height: 600px;
+  background-blend-mode: multiply;
+  
+}
+.details{
+  padding: 30px;
+}
+
+.carousel-info{
+  
+}
+.carousel-img{
+  height: 500px;
+}
+
+.detailsBtn:hover{
+  text-decoration: none
+}
+
+@media only screen and (min-width:0px) and (max-width: 360px){
+  .bg{
+    margin-top: -6%;
+  }
+}
+
+@media only screen and (min-width:539px) and (max-width: 540px){
+  .bg{
+    margin-top: -4%;
+  }
+}
+
+@media only screen and (min-width:1025px){
+  .carousel-info{
+    padding: 50px;
+  }
+  .details{
+    padding: 120px;
+  }
+}
