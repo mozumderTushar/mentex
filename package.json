@@ -25,6 +25,7 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.11.2",
     "react-modal": "^3.12.1",
+    "react-owl-carousel2": "^0.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-vis": "^1.11.7",

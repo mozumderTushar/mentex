@@ -2,63 +2,67 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-import './OurExpert.css'
+import './OurExpert.css';
+import OwlCarousel from 'react-owl-carousel2';
+import 'react-owl-carousel2/src/owl.carousel.css'
+import 'react-owl-carousel2/src/owl.theme.default.css'
 
 const OurExpert = () => {
-  const [index, setIndex] = useState(0);
-  const [ourExpert, setOurExpert] = useState([])
+
   const [expertCarousel, setExpertCarousel] = useState([])
 
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  }
 
   useEffect(() => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
       .then(response => response.json())
-      .then(data => {
-        const expert = data.find(data => Number(data.id) === index)
-        setOurExpert(expert)
-      })
-
-    fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
-      .then(response => response.json())
       .then(data => setExpertCarousel(data))
-  }, [index])
+  }, [])
 
-  const handleDetails = (id) => {
-    console.log(id);
-  }
+  const options = {
+    rewind: true,
+    autoplay: true,
+    loop: true,
+    navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 1
+      }
+    }
+  };
 
   return (
-    <div className="bg">
-      <div className="row carousel-info">
-        <div className="col-md-8 details">
-          <div>
-            <h1>{ourExpert.fullName}</h1>
-            <h3>{ourExpert.details}</h3>
-            <Link to={`expertDetails/${ourExpert._id}`} className="detailsBtn"><Button onClick={()=> handleDetails(ourExpert._id)} className="button" height="40px" variant="contained">Details</Button></Link>
-          </div>
-        </div>
-        <div className="col-md-4">
-          <Carousel activeIndex={index} onSelect={handleSelect}>
-            {
-              expertCarousel.map(expert => (
-                <Carousel.Item>
+    <div className="common__bg__dark__blue">
+      <h1 className="text-center pt-5">OUR EXPERTS</h1>
+      <OwlCarousel options={options}  >
+        {
+          expertCarousel.map(expert => (
+            <div className="row  pt-5">
+              <div className="col-md-6 offset-md-1  align-self-center">
+                <h1>{expert.fullName}</h1>
+                <h3>{expert.details}</h3>
+                <Link to={`expertDetails/${expert._id}`} className="detailsBtn"><Button className="button" height="40px" variant="contained">Details</Button></Link>
+              </div>
+              <div className="col-md-4">
+                <div>
                   <img
                     className="d-block w-100 carousel-img"
                     src={expert.img}
                     alt="First slide"
                   />
-                  <Carousel.Caption>
-                    <h3>{expert.fullName}</h3>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              ))
-            }
-          </Carousel>
-        </div>
-      </div>
+                </div>
+              </div>
+            </div>
+          ))
+
+        }
+
+      </OwlCarousel>
     </div>
   );
 };

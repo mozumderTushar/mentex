@@ -18,7 +18,6 @@ const ExpertDetails = () => {
 
   console.log('expertDetails', expertDetails);
   return (
-
     <div className="common__bg__cyan">
       <div className="expert_details_container">
         <NavBar />
