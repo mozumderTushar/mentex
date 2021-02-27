@@ -29,7 +29,7 @@ const blogData = [
 
 const Blog = () => {
   return (
-    <section className="blogs p-5 common__bg__cyan">
+    <section className="blogs p-5 common__bg__dark__blue">
       <div className="container">
         <div className="section-header text-center">
           <h1 className="blog__title">From Our Blog News</h1>
