@@ -47,7 +47,6 @@ const initialFValues = {
 
 
 const AddExpert = () => {
-
   const classes = useStyles()
 
   const validate = (fieldValues = values) => {
@@ -84,6 +83,7 @@ const AddExpert = () => {
     isOpen: false,
     message: '',
     type: '',
+
   })
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
@@ -93,6 +93,7 @@ const AddExpert = () => {
   const [admin, setAdmin] = useState({})
   const [loggedInUser, setLoggedInUser] = useContext(UserContext)
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [image, setImage] = useState("")
   let history = useHistory();
 
   const openSidebar = () => {
@@ -109,37 +110,49 @@ const AddExpert = () => {
     setAdmin(newAdmin)
   }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (validate()) {
+  const uploadImage = (files) => {
+    const formData = new FormData()
+    formData.append('file', files[0])
+    formData.append('upload_preset', 'xobhnc8v')
 
-    fetch('https://peaceful-lake-24732.herokuapp.com/addExpert', {
+    return fetch('https://api.cloudinary.com/v1_1/mentex/image/upload', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(values)
+      body: formData
     })
       .then(response => response.json())
-      .then(data => {
-        if (data) {
-          // alert('Expert Added Successfully')
-          setNotify({
-            isOpen: true,
-            message: 'Expert Added Successfully',
-            type: 'success'
-          })
-          // document.getElementById('email').value = '';
-          setConfirmDialog({
-            isOpen: true,
-            title: 'Do You Want To See The Expert List?',
-            subTitle: "You can't undo this operation",
-            onConfirm: () => { history.push('/expertList') }
-          })
-          // history.push('/expertList')
-        }
+      .then(data => setImage(data.url))
+  }
+    console.log('image',image);
+  const handleSubmit = e => {
+    e.preventDefault();
+    values.img = { image }
+  
+    if (validate()) {
+      fetch('https://peaceful-lake-24732.herokuapp.com/addExpert', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
       })
-    resetForm();
+        .then(response => response.json())
+        .then(data => {
+          if (data) {
+            setNotify({
+              isOpen: true,
+              message: 'Expert Added Successfully',
+              type: 'success'
+            })
+            setConfirmDialog({
+              isOpen: true,
+              title: 'Do You Want To See The Expert List?',
+              subTitle: "You can't undo this operation",
+              onConfirm: () => { history.push('/expertList') }
+            })
+
+          }
+        })
+      resetForm();
     }
   }
   return (
@@ -187,7 +200,7 @@ const AddExpert = () => {
                 error={errors.gender}
               />
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={4}>
               <Controls.Select
                 label="Occupation"
                 name="occupation"
@@ -196,6 +209,13 @@ const AddExpert = () => {
                 onChange={handleInputChange}
                 error={errors.occupation}
               />
+            </Grid>
+            <Grid item xs={4}>
+              <input
+                type="file"
+                onChange={(e) => {
+                  uploadImage(e.target.files)
+                }} />
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
