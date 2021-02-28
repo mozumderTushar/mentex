@@ -4,6 +4,7 @@ import NavBar from '../../Shared/NavBar/NavBar';
 import Footer from '../../Shared/Footer/Footer';
 
 const ExpertDetails = () => {
+  window.scroll(0,0);
   const { DetailsID } = useParams()
   const [expertDetails, setExpertDetails] = useState({})
 
@@ -16,14 +17,13 @@ const ExpertDetails = () => {
       })
   }, [DetailsID])
 
-  console.log('expertDetails', expertDetails.img.image);
   return (
     <div className="common__bg__cyan">
       <div className="expert_details_container">
         <NavBar />
         <div className="row">
           <div className="col-md-6 text-center">
-            <img className="img-fluid mt-5 pt-5" style={{ width: "50%" }} src={expertDetails.img.image} alt="" />
+            <img className="img-fluid mt-5 pt-5" style={{ width: "50%" }} src={expertDetails.img} alt="" />
           </div>
           <div className="col-md-6 align-self-center">
             <h1 className="about-title">Name:{expertDetails.fullName}</h1>

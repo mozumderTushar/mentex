@@ -52,7 +52,7 @@ console.log('expertCarousel',expertCarousel);
                 <div>
                   <img
                     className="d-block w-100 carousel-img"
-                    src={expert.img.image}
+                    src={expert.img}
                     alt="First slide"
                   />
                 </div>

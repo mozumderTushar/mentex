@@ -37,7 +37,7 @@ html,body{
   display: inline-block;
   background:transparent;
   border: 1px solid #000;
-  color:#fff;
+  color:#000;
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;

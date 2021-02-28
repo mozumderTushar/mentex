@@ -10,7 +10,7 @@ const ConnectWithExperts = () => {
           <div className="col-md-5 ">
             <h1>Connect with Experts</h1>
             <div className="text-secondary"><strong>MENTEX</strong> is a platform that can connect your need with the experts who will help you reach your goal. </div>
-            <Link to="/connectExpert"><button className="my-3 btn btn-brand connect" style={{color: '#000'}}><span></span>
+            <Link to="/connectExpert"><button className="my-3 btn btn-brand connect"><span></span>
               <span></span>
               <span></span>
               <span></span>CONNECT</button></Link>
