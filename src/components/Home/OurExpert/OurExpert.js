@@ -35,7 +35,7 @@ const OurExpert = () => {
       }
     }
   };
-
+console.log('expertCarousel',expertCarousel);
   return (
     <div className="common__bg__dark__blue">
       <h1 className="text-center pt-5">OUR EXPERTS</h1>
@@ -52,7 +52,7 @@ const OurExpert = () => {
                 <div>
                   <img
                     className="d-block w-100 carousel-img"
-                    src={expert.img}
+                    src={expert.img.image}
                     alt="First slide"
                   />
                 </div>
