@@ -122,11 +122,11 @@ const AddExpert = () => {
       .then(response => response.json())
       .then(data => setImage(data.url))
   }
-    console.log('image',image);
+  console.log('image', image);
   const handleSubmit = e => {
     e.preventDefault();
-    values.img = { image }
-  
+    values.img = image;
+
     if (validate()) {
       fetch('https://peaceful-lake-24732.herokuapp.com/addExpert', {
         method: 'POST',
@@ -190,7 +190,7 @@ const AddExpert = () => {
                 error={errors.mobile}
               />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <Controls.Select
                 label="Gender"
                 name="gender"
@@ -200,7 +200,7 @@ const AddExpert = () => {
                 error={errors.gender}
               />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <Controls.Select
                 label="Occupation"
                 name="occupation"
@@ -210,8 +210,9 @@ const AddExpert = () => {
                 error={errors.occupation}
               />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} sm={4}>
               <input
+                className="upload__button"
                 type="file"
                 onChange={(e) => {
                   uploadImage(e.target.files)
