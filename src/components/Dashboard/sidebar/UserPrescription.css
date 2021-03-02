@@ -1,0 +1,13 @@
+.prescription{
+  font-family: cursive;
+}
+.prescription__container{
+  height: 90vh;
+  background: #fff;
+  border-radius: 5px;
+}
+hr{
+  background-color:#0bb5f4;
+  height: 3px;
+  border-radius: 10px;
+}
