@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import { withStyles } from '@material-ui/core/styles';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -43,6 +43,8 @@ const DialogContent = withStyles((theme) => ({
 const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, body }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [prescriptionID, setPrescriptionID] = useState();
+  const [prescriptionUser, setPrescriptionUser] = useState([]);
+
   function openModal(id) {
     setIsOpen(true);
     setPrescriptionID(id)
@@ -51,7 +53,11 @@ const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, 
   function closeModal() {
     setIsOpen(false);
   }
-  console.log(appointmentList);
+  useEffect(() => {
+    const appointmentUserInfo = appointmentList.find(item => item._id === prescriptionID)
+    setPrescriptionUser(appointmentUserInfo)
+  })
+
   return (
     <div className="table-responsive">
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -100,7 +106,7 @@ const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, 
           }
         </tbody>
       </table>
-      <PrescriptionModal modalIsOpen={modalIsOpen} closeModal={closeModal} prescriptionID={prescriptionID}></PrescriptionModal>
+      <PrescriptionModal modalIsOpen={modalIsOpen} closeModal={closeModal} prescriptionID={prescriptionID} prescriptionUser={prescriptionUser}></PrescriptionModal>
       <div className="table__banner row mt-3 mb-5 ml-3">
         <h3 className="about-title">Get In Touch</h3>
         <p className="lead">“Anything that’s human is mentionable, and anything that is mentionable can be more manageable. When we can talk about our feelings, they become less overwhelming, less upsetting, and less scary.”</p>

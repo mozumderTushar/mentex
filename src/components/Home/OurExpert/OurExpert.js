@@ -8,9 +8,7 @@ import 'react-owl-carousel2/src/owl.carousel.css'
 import 'react-owl-carousel2/src/owl.theme.default.css'
 
 const OurExpert = () => {
-
   const [expertCarousel, setExpertCarousel] = useState([])
-
 
   useEffect(() => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
@@ -35,7 +33,7 @@ const OurExpert = () => {
       }
     }
   };
-console.log('expertCarousel',expertCarousel);
+
   return (
     <div className="common__bg__dark__blue">
       <h1 className="text-center pt-5">OUR EXPERTS</h1>

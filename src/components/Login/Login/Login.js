@@ -55,6 +55,17 @@ const Login = () => {
       });
   }
 
+  const storeAuthTokenEmailLogin = (newUserInfo) => {
+    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+      .then(function (idToken) {
+        sessionStorage.setItem('token', idToken);
+        sessionStorage.setItem('email', newUserInfo.email);
+        history.replace(from);
+      }).catch(function (error) {
+        // Handle error
+      });
+  }
+
   const handleBlur = (e) => {
     let isFieldValid = true;
     if (e.target.name === 'email') {
@@ -104,6 +115,7 @@ const Login = () => {
           newUserInfo.success = true;
           setUser(newUserInfo)
           setLoggedInUser(newUserInfo)
+          storeAuthTokenEmailLogin(newUserInfo);
           history.replace(from);
         })
         .catch(error => {

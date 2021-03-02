@@ -19,6 +19,7 @@ import AdminList from '../Admin/AdminList/AdminList';
 import ExpertList from '../Admin/ExpertList/ExpertList';
 import AppointmentList from '../Expert/AppointmentList/AppointmentList';
 import ExpertDetails from '../Home/OurExpert/ExpertDetails';
+import UserPrescription from '../Dashboard/Sidebar/UserPrescription';
 
 export const UserContext = createContext();
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/about'> <About /> </Route>
           <Route path='/contact'> <Contact /> </Route>
           <Route path='/expertDetails/:DetailsID'> <ExpertDetails /> </Route>
+          <Route path='/prescription/:prescriptionID'> <UserPrescription /> </Route>
           <Route path='/login'> <Login /> </Route>
           <Route path='/connectExpert'> <ExpertAppointment /> </Route>
           <PrivateRoute path='/dashboard'> <Dashboard /> </PrivateRoute>
