@@ -3,11 +3,14 @@ import './Sidebar.css'
 import logo from '../../assets/images/fluoride.png'
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App/App';
+import { Badge } from '@material-ui/core';
+import MailIcon from '@material-ui/icons/Mail';
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [isExpert, setIsExpert] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [prescription, setPrescription] = useState([]);
   const userLoggedInSession = sessionStorage.getItem('email');
 
   useEffect(() => { /** Experts */
@@ -31,6 +34,15 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           setIsAdmin(true)
           setIsExpert(false)
         }
+      })
+  }, [])
+
+  useEffect(() => {
+    fetch('https://peaceful-lake-24732.herokuapp.com/allPrescription')
+      .then(response => response.json())
+      .then(data => {
+        const prescriptionData = data.filter(SinglePrescription => SinglePrescription.patientEmail === (loggedInUser.email || userLoggedInSession));
+        setPrescription(prescriptionData)
       })
   }, [])
 
@@ -111,11 +123,17 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         {
           (!isExpert && !isAdmin) &&
           <div className="sidebar__link">
-            <i className="fas fa-id-card"></i>
-            <Link to="/dashboard/appointment/list">User</Link>
+            <Badge color="secondary" badgeContent={prescription.length} showZero className="mr-2">
+              <MailIcon />
+            </Badge>
+            {
+              prescription.map(single => (
+                <Link to={`prescription/${single._id}`} >Prescription</Link>
+              ))
+            }
+            
           </div>
         }
-
         <h2>INFO</h2>
         <div className="sidebar__link">
           <i className="fa fa-info-circle"></i>
@@ -131,7 +149,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         </div>
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
-          <a onClick={deleteItems} style={{cursor:'pointer'}}>Log out</a>
+          <a onClick={deleteItems} style={{ cursor: 'pointer' }}>Log out</a>
         </div>
       </div>
     </div >

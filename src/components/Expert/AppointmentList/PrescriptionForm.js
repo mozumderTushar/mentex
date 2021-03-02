@@ -23,7 +23,7 @@ const initialFValues = {
   prescriptionID: '',
 }
 
-export default function PrescriptionForm({ prescriptionID, closeModal }) {
+export default function PrescriptionForm({ prescriptionID, closeModal, prescriptionUser }) {
   const [notify, setNotify] = useState({
     isOpen: false,
     message: '',
@@ -55,6 +55,14 @@ export default function PrescriptionForm({ prescriptionID, closeModal }) {
     e.preventDefault()
     if (validate()) {
       values.prescriptionID = prescriptionID;
+      values.patientName = prescriptionUser.name;
+      values.patientEmail = prescriptionUser.email;
+      values.patientServices = prescriptionUser.service;
+      values.patientPhone = prescriptionUser.phone;
+      values.patientAge = prescriptionUser.age;
+      values.patientWeight = prescriptionUser.weight;
+      values.patientDetails = prescriptionUser.details;
+      values.PrescriptionGivenProfessional = prescriptionUser.professional;
 
       fetch('https://peaceful-lake-24732.herokuapp.com/addPrescription', {
         method: 'POST',

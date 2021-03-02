@@ -16,7 +16,7 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-const PrescriptionModal = ({ modalIsOpen, closeModal, prescriptionID }) => {
+const PrescriptionModal = ({ modalIsOpen, closeModal, prescriptionID, prescriptionUser }) => {
   return (
     <div>
       <Modal
@@ -25,7 +25,7 @@ const PrescriptionModal = ({ modalIsOpen, closeModal, prescriptionID }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <PrescriptionForm closeModal={closeModal} prescriptionID={prescriptionID}/>
+        <PrescriptionForm closeModal={closeModal} prescriptionID={prescriptionID} prescriptionUser={prescriptionUser}/>
       </Modal>
     </div>
   );
