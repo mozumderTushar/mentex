@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './UserPrescription.css';
 import NavBar from '../../Shared/NavBar/NavBar'
-import './Pdf'
+import Footer from '../../Shared/Footer/Footer';
 
 const UserPrescription = () => {
   window.scroll(0, 0);
@@ -17,9 +17,28 @@ const UserPrescription = () => {
         setPrescription(expertPrescription)
       })
   }, [prescriptionID])
+
+  const handlePdf = () => {
+    const html2pdf =  window.html2pdf;
+    let el = document.getElementById("download")
+    if (el) {
+      el.addEventListener("click", () => {
+        const prescription = document.getElementById("prescription");
+        var opt = {
+          margin: 1,
+          filename: 'myPrescription.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().from(prescription).set(opt).save();
+      })
+    }
+  }
+
   return (
     <div class="common__bg__cyan">
-      <NavBar/>
+      <NavBar />
       <div className="prescription__container container mt-5" id="prescription">
         <div className="row ml-5">
           <div className="col-md-6 mt-5">
@@ -54,11 +73,12 @@ const UserPrescription = () => {
           </div>
         </div>
         <div className="row">
-        <div class="col-md-12 text-right mt-4">
-                <button class="btn btn-success" id="download"> Download Pdf</button>
-            </div>
+          <div class="col-md-12 text-right mb-3">
+            <button class="btn btn-success" id="download" onClick={handlePdf}> Download Pdf</button>
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
