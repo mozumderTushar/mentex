@@ -44,8 +44,6 @@ const initialFValues = {
   details: '',
 }
 
-
-
 const AddExpert = () => {
   const classes = useStyles()
 
@@ -242,7 +240,6 @@ const AddExpert = () => {
         </Form>
       </div>
     </div>
-
   );
 };
 

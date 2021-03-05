@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ConfirmDialog from '../../Alert/ConfirmDialog/ConfirmDialog';
 import Notification from '../../Alert/Notification/Notification';
 import './AdminList.css'
@@ -44,6 +45,7 @@ const AdminListTable = ({ adminList }) => {
             <th scope="col">Name</th>
             <th scope="col">Mobile</th>
             <th scope="col">Action</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -63,7 +65,13 @@ const AdminListTable = ({ adminList }) => {
                       onConfirm: () => { deleteEvent(admin._id) }
                     })
                   }
-                  class="btn btn-danger"><i className="fas fa-trash"></i></button></td>
+                  class="btn btn-danger"><i className="fas fa-trash"></i></button>
+                </td>
+                <td>
+                  <Link to={`/editAdmin/${admin._id}`}>
+                    <button class="btn btn-success" type="button" ><i class="fas fa-edit"></i></button>
+                  </Link>
+                </td>
               </tr>
             )
           }

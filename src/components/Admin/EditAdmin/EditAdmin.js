@@ -1,16 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { UserContext } from '../../App/App';
 import { Grid, Hidden, Paper, } from '@material-ui/core';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import ResponsiveSidebar from '../../Dashboard/ResponsiveSidebar/ResponsiveSidebar';
-import './AddAdmin.css'
+import '../AddAdmin/AddAdmin.css'
 import { useHistory } from 'react-router-dom';
 import Icon from '@material-ui/core/Icon';
 import Controls from "../../Controls/Controls";
 import { useForm, Form } from '../../FormMaterialUi/useForm'
 import { makeStyles } from '@material-ui/core/styles';
-import ConfirmDialog from '../../Alert/ConfirmDialog/ConfirmDialog';
 import Notification from '../../Alert/Notification/Notification';
+import ConfirmDialog from '../../Alert/ConfirmDialog/ConfirmDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,16 +31,17 @@ const genderItems = [
   { id: 'Other', title: 'Other' },
 ]
 
-const initialFValues = {
-  fullName: '',
-  email: '',
-  mobile: '',
-  gender: '',
-  age: '',
-}
 
-const AddAdmin = () => {
+const EditAdmin = () => {
+  const [initialFValues, setInitialFValues] = useState({
+    fullName: '',
+    email: '',
+    mobile: '',
+    gender: '',
+    age: '',
+  })
 
+  const { adminID } = useParams()
   const classes = useStyles()
 
   const validate = (fieldValues = values) => {
@@ -78,11 +80,10 @@ const AddAdmin = () => {
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
     title: '',
-    subTitle: '',
   })
-  const [admin, setAdmin] = useState({})
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [adminList, setAdminList] = useState([])
   let history = useHistory();
 
   const openSidebar = () => {
@@ -93,18 +94,38 @@ const AddAdmin = () => {
     setSidebarOpen(false);
   };
 
-  const handleBlur = e => {
-    const newAdmin = { ...admin }
-    newAdmin[e.target.name] = e.target.value
-    setAdmin(newAdmin)
-  }
+  useEffect(() => {
+    fetch(`https://peaceful-lake-24732.herokuapp.com/Admin/${adminID}`)
+      .then(res => res.json())
+      .then(data => setAdminList(data[0]))
+  }, [])
+
+  console.log('adminList', adminList);
 
   const handleSubmit = e => {
+    setConfirmDialog({
+      ...confirmDialog,
+      isOpen: false,
+    })
     e.preventDefault();
-    if (validate()) {
+    if (values.fullName === '') {
+      values.fullName = adminList.fullName
+    }
+    if (values.email === '') {
+      values.email = adminList.email
+    }
+    if (values.mobile === '') {
+      values.mobile = adminList.mobile
+    }
+    if (values.gender === '') {
+      values.gender = adminList.gender
+    }
+    if (values.age === '') {
+      values.age = adminList.age
+    }
 
-    fetch('https://peaceful-lake-24732.herokuapp.com/addAdmin', {
-      method: 'POST',
+    fetch(`https://peaceful-lake-24732.herokuapp.com/AdminUpdate/${adminID}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -113,37 +134,35 @@ const AddAdmin = () => {
       .then(response => response.json())
       .then(data => {
         if (data) {
-          // alert('Admin Added Successfully')
-          setNotify({
-            isOpen: true,
-            message: 'Admin Added Successfully',
-            type: 'success'
-          })
-          setConfirmDialog({
-            isOpen: true,
-            title: 'Do You Want To See The Admin List?',
-            subTitle: "You can't undo this operation",
-            onConfirm: () => { history.push('/adminList') }
-          })
-
         }
       })
+    setConfirmDialog({
+      isOpen: true,
+      title: 'Do You Want To See The Updated Admin List?',
+      subTitle: "You can't undo this operation",
+      onConfirm: () => { history.push('/adminList') }
+    })
+    setNotify({
+      isOpen: true,
+      message: 'Updated Successfully',
+      type: 'success'
+    })
     resetForm();
-    }
+
   }
   return (
     <div className="dashboard__container">
       <ResponsiveSidebar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
       <div className="addExpert__container">
-        <h2>Add Admin</h2>
+        <h2>Edit Admin</h2>
         <Form onSubmit={handleSubmit} className={classes.root} >
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Controls.Input
                 name="fullName"
                 label="Full Name"
-                value={values.fullName}
+                value={values.fullName || adminList.fullName}
                 onChange={handleInputChange}
                 error={errors.fullName}
               />
@@ -152,7 +171,7 @@ const AddAdmin = () => {
               <Controls.Input
                 label="Email"
                 name="email"
-                value={values.email}
+                value={values.email || adminList.email}
                 onChange={handleInputChange}
                 error={errors.email}
               />
@@ -161,7 +180,7 @@ const AddAdmin = () => {
               <Controls.Input
                 label="Mobile"
                 name="mobile"
-                value={values.mobile}
+                value={values.mobile || adminList.mobile}
                 onChange={handleInputChange}
                 error={errors.mobile}
               />
@@ -171,7 +190,7 @@ const AddAdmin = () => {
                 label="Gender"
                 name="gender"
                 options={genderItems}
-                value={values.gender}
+                value={values.gender || adminList.gender}
                 onChange={handleInputChange}
                 error={errors.gender}
               />
@@ -181,7 +200,7 @@ const AddAdmin = () => {
                 type="number"
                 label="Age"
                 name="age"
-                value={values.age}
+                value={values.age || adminList.age}
                 onChange={handleInputChange}
                 error={errors.age}
               />
@@ -190,12 +209,10 @@ const AddAdmin = () => {
               <Controls.Button
                 className={classes.button}
                 type="submit"
-                text="Add"
+                text="Update"
                 endIcon={<Icon>send</Icon>} />
             </div>
           </Grid>
-          <Notification notify={notify} setNotify={setNotify} />
-          <ConfirmDialog confirmDialog={confirmDialog} setConfirmDialog={setConfirmDialog} />
         </Form>
       </div>
       <Notification notify={notify} setNotify={setNotify} />
@@ -204,4 +221,4 @@ const AddAdmin = () => {
   );
 };
 
-export default AddAdmin;
+export default EditAdmin;
