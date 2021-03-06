@@ -100,7 +100,7 @@ const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, 
                     :
                     <td>{appointment.details}</td>
                 }
-                <td> <button type="button" onClick={()=>openModal(appointment._id)} className="btn btn-success">prescription</button></td>
+                <td> <button type="button" onClick={()=>openModal(appointment._id)} className="btn btn-success">Advice</button></td>
               </tr>
             )
           }
