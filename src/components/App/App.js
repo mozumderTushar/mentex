@@ -22,6 +22,7 @@ import ExpertDetails from '../Home/OurExpert/ExpertDetails';
 import UserPrescription from '../Dashboard/Sidebar/UserPrescription';
 import EditAdmin from '../Admin/EditAdmin/EditAdmin';
 import EditExpert from '../Admin/EditExpert/EditExpert';
+import NewPost from '../Post/NewPost';
 
 export const UserContext = createContext();
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <PrivateRoute path='/appointmentList'> <AppointmentList /> </PrivateRoute>
           <Route path='/editAdmin/:adminID'> <EditAdmin /> </Route>
           <Route path='/editExpert/:expertID'> <EditExpert /> </Route>
+          <Route path='/post'> <NewPost /> </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
