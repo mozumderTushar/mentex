@@ -119,21 +119,6 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             <Link to="/addExperts">Add Experts</Link>
           </div>
         }
-
-        {
-          (!isExpert && !isAdmin) &&
-          <div className="sidebar__link">
-            <Badge color="secondary" badgeContent={prescription.length} showZero className="mr-2">
-              <MailIcon />
-            </Badge>
-            {
-              prescription.map(single => (
-                <Link to={`prescription/${single._id}`} >Experts Advice</Link>
-              ))
-            }
-            
-          </div>
-        }
         <h2>INFO</h2>
         <div className="sidebar__link">
           <i className="fa fa-info-circle"></i>

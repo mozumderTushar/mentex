@@ -74,7 +74,7 @@ const UserPrescription = () => {
         </div>
         <div className="row">
           <div class="col-md-12 text-right mb-3">
-            <button class="btn btn-success" id="download" onClick={handlePdf}> Download Pdf</button>
+            <button class="btn btn-success" id="download" onClick={handlePdf}> Download Pdf </button>
           </div>
         </div>
       </div>

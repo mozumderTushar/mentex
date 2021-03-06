@@ -23,6 +23,7 @@ import UserPrescription from '../Dashboard/Sidebar/UserPrescription';
 import EditAdmin from '../Admin/EditAdmin/EditAdmin';
 import EditExpert from '../Admin/EditExpert/EditExpert';
 import NewPost from '../Post/NewPost';
+import AllPost from '../Post/AllPost';
 
 export const UserContext = createContext();
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Route path='/editAdmin/:adminID'> <EditAdmin /> </Route>
           <Route path='/editExpert/:expertID'> <EditExpert /> </Route>
           <Route path='/post'> <NewPost /> </Route>
+          <Route path='/allPost'> <AllPost /> </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
