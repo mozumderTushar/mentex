@@ -128,7 +128,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             </Badge>
             {
               prescription.map(single => (
-                <Link to={`prescription/${single._id}`} >Prescription</Link>
+                <Link to={`prescription/${single._id}`} >Experts Advice</Link>
               ))
             }
             

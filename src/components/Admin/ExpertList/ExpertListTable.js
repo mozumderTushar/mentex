@@ -41,8 +41,8 @@ const ExpertListTable = ({ expertList }) => {
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Email</th>
             <th scope="col">Name</th>
+            <th scope="col">Occupation</th>
             <th scope="col">Mobile</th>
             <th scope="col">Action</th>
             <th scope="col">Action</th>
@@ -53,8 +53,8 @@ const ExpertListTable = ({ expertList }) => {
             expertList.map((expert, index) =>
               <tr key={expert._id}>
                 <th scope="row">{index + 1}</th>
-                <td>{expert.email}</td>
                 <td>{expert.fullName}</td>
+                <td>{expert.occupation}</td>
                 <td>{expert.mobile}</td>
                 <td> <button type="button"
                   onClick={() =>

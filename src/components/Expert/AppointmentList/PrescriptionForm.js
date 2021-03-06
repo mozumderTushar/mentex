@@ -77,7 +77,7 @@ export default function PrescriptionForm({ prescriptionID, closeModal, prescript
         })
       setNotify({
         isOpen: true,
-        message: 'Prescription Added Successfully',
+        message: 'Advice Added Successfully',
         type: 'success'
       })
       setTimeout(function () { closeModal(); }, 2000);

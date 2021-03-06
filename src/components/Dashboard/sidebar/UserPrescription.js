@@ -58,7 +58,7 @@ const UserPrescription = () => {
           </div>
           <div className="col-md-6 mt-3">
             <br></br>
-            <h4>Prescription:<br></br>
+            <h4>Suggestions:<br></br>
               {prescription.prescription}</h4>
           </div>
         </div>

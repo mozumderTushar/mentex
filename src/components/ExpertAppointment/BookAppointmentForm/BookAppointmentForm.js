@@ -35,7 +35,6 @@ const BookAppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) =
         contentLabel="Example Modal"
       >
         <h2 className="text-center text-brand">{appointmentOn}</h2>
-        <p className="text-secondary text-center"><small>ON {date.toDateString()}</small></p>
         <FormMaterialUi appointmentOn={appointmentOn} date={date} closeModal={closeModal} professional={professional}/>
       </Modal>
     </div>

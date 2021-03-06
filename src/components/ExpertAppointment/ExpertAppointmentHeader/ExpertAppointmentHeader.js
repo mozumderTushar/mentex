@@ -12,7 +12,7 @@ const ExpertAppointmentHeader = ({handleDateChange}) => {
         <div className="col-md-4 offset-md-2">
           <h2>Yor are never along</h2>
           <div className="text-secondary">Mental Health is not a destination,but a process.It's about how you drive,Not where you're going.</div>
-          <h6 className="mt-2">Book an Appointment with Professionals Now...</h6>
+          <h6 className="mt-2">Get in touch with our Experts Now...</h6>
         </div>
       </main>
     </div>
