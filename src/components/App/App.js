@@ -23,6 +23,8 @@ import UserPrescription from '../Dashboard/Sidebar/UserPrescription';
 import EditAdmin from '../Admin/EditAdmin/EditAdmin';
 import EditExpert from '../Admin/EditExpert/EditExpert';
 import NewPost from '../Post/NewPost';
+import Cookies from '../Shared/Footer/Cookies';
+import Static from '../Shared/Footer/Static';
 
 export const UserContext = createContext();
 function App() {
@@ -47,6 +49,8 @@ function App() {
           <Route path='/editAdmin/:adminID'> <EditAdmin /> </Route>
           <Route path='/editExpert/:expertID'> <EditExpert /> </Route>
           <Route path='/post'> <NewPost /> </Route>
+          <Route path='/cookies'> <Cookies /> </Route>
+          <Route path='/static'> <Static /> </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
