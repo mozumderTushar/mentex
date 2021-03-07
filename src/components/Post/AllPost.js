@@ -17,6 +17,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Grid } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,11 +54,10 @@ const AllPost = () => {
       .then(data => setAllPost(data))
   }, [])
   console.log('allPost', allPost);
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+
   return (
     <div>
+
       <Grid container spacing={1}>
         {
           allPost.map(singlePost => (
@@ -86,21 +86,24 @@ const AllPost = () => {
                     {singlePost.post}
                   </Typography>
                 </CardContent>
+                <CardContent>
+
+                </CardContent>
                 <CardActions disableSpacing>
                   <IconButton aria-label="add to favorites">
                     <FavoriteIcon />
                   </IconButton>
-                  <IconButton aria-label="share">
-                    <ShareIcon />
+                  <Link to={`postDetails/${singlePost._id}`}>
+                    <IconButton aria-label="share">
+                      comment
                   </IconButton>
+                  </Link>
                 </CardActions>
               </Card>
             </Grid>
           ))
         }
-
       </Grid>
-
     </div>
   );
 };
