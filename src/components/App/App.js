@@ -25,6 +25,9 @@ import EditExpert from '../Admin/EditExpert/EditExpert';
 import NewPost from '../Post/NewPost';
 import AllPost from '../Post/AllPost';
 import PostDetails from '../Post/PostDetails';
+import Cookies from '../Shared/Footer/Cookies';
+import Static from '../Shared/Footer/Static';
+
 
 export const UserContext = createContext();
 function App() {
@@ -51,6 +54,8 @@ function App() {
           <Route path='/post'> <NewPost /> </Route>
           <Route path='/allPost'> <AllPost /> </Route>
           <Route path='/postDetails/:postID'> <PostDetails /> </Route>
+          <Route path='/cookies'> <Cookies /> </Route>
+          <Route path='/static'> <Static /> </Route>
         </Switch>
       </Router>
     </UserContext.Provider>
