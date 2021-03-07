@@ -1,8 +1,7 @@
 .static-area{
   padding-top: 5%;
-}
-body{
   background: #131f33;
+  height:100vh;
 }
 .static-img{
   position:relative;
