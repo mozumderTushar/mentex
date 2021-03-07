@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Grid, Hidden, Paper, } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import Controls from "../Controls/Controls";
 import { useForm, Form } from './useForm'
@@ -19,11 +19,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const genderItems = [
-  { id: '1', title: 'Male' },
-  { id: '2', title: 'Female' },
-  { id: '3', title: 'Other' },
+  { id: 'Male', title: 'Male' },
+  { id: 'Female', title: 'Female' },
+  { id: 'Other', title: 'Other' },
 ]
-
 
 const initialFValues = {
   name: '',
@@ -37,7 +36,6 @@ const initialFValues = {
 }
 
 export default function FormMaterialUi(props) {
- 
   const [notify, setNotify] = useState({
     isOpen: false,
     message: '',

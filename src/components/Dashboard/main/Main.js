@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Main.css'
 import hello from '../../assets/images/hello.png'
 import Chart from '../Charts/Chart';
@@ -6,7 +7,46 @@ import { UserContext } from '../../App/App';
 
 const Main = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-  console.log('loggedInUser', loggedInUser);
+  const [prescription, setPrescription] = useState({})
+  const [isExpert, setIsExpert] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
+  const userLoggedInSession = sessionStorage.getItem('email');
+
+  useEffect(() => { /** Experts */
+    fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
+      .then(response => response.json())
+      .then(data => {
+        const isExpert = data.find(expert => expert.email === (loggedInUser.email || userLoggedInSession));
+        if (isExpert) {
+          setIsExpert(true)
+          setIsAdmin(false)
+        }
+      })
+  }, [])
+
+  useEffect(() => { /** Admin */
+    fetch('https://peaceful-lake-24732.herokuapp.com/allAdmins')
+      .then(response => response.json())
+      .then(data => {
+        const isAdmin = data.find(admin => admin.email === (loggedInUser.email || userLoggedInSession));
+        if (isAdmin) {
+          setIsAdmin(true)
+          setIsExpert(false)
+        }
+      })
+  }, [])
+
+  useEffect(() => {
+    fetch('https://peaceful-lake-24732.herokuapp.com/allPrescription')
+      .then(response => response.json())
+      .then(data => {
+        const prescriptionData = data.filter(SinglePrescription => SinglePrescription.patientEmail === (loggedInUser.email || userLoggedInSession));
+        setPrescription(prescriptionData)
+        console.log('prescriptionData', prescriptionData);
+      })
+  }, [])
+
+  console.log('prescription', prescription);
   return (
     <main className="main-bg">
       <div className="main__container">
@@ -63,39 +103,109 @@ const Main = () => {
             <Chart />
           </div>
           <div className="charts__right">
-            <div className="charts__right__title">
+
+            {
+              prescription.length > 0 && <div className="charts__right__cards">
+                {
+                  (!isExpert && !isAdmin) &&
+                  <div>
+                    <div className="charts__right__title">
+                      <div>
+                        <h1>Experts Advices</h1>
+                        <p>Mentex-Health Organization</p>
+                      </div>
+                      <i className="fa fa-use"></i>
+                    </div>
+                    <div className="sidebar__link">
+                      <div className="charts__right__cards">
+                        {
+                          prescription?.map(single => (
+                            <Link to={`prescription/${single._id}`} style={{ textDecoration: 'none' }}>
+                              <div className="card1">
+                                <h1>Advice</h1>
+                                <p>view</p>
+                              </div>
+                            </Link>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+            {
+              (!isAdmin && isExpert) &&
               <div>
-                <h1> Reports</h1>
-                <p>Mentex-Health Organization</p>
-              </div>
-              <i className="fa fa-use"></i>
-            </div>
-            <div className="charts__right__cards">
-              <div className="card1">
-                <h1>Post</h1>
-                <p>$75,300</p>
-              </div>
+                <div className="charts__right__title">
+                  <div>
+                    <h1>Reports</h1>
+                    <p>Mentex-Health Organization</p>
+                  </div>
+                  <i className="fa fa-use"></i>
+                </div>
+                <div className="charts__right__cards">
+                  <div className="card1">
+                    <h1>Post</h1>
+                    <p>$75,300</p>
+                  </div>
 
-              <div className="card2">
-                <h1>Experts</h1>
-                <p>$125,300</p>
-              </div>
+                  <div className="card2">
+                    <h1>Experts</h1>
+                    <p>$125,300</p>
+                  </div>
 
-              <div className="card3">
-                <h1>Users</h1>
-                <p>3900</p>
-              </div>
+                  <div className="card3">
+                    <h1>Users</h1>
+                    <p>3900</p>
+                  </div>
 
-              <div className="card4">
-                <h1>Booked</h1>
-                <p>1881</p>
+                  <div className="card4">
+                    <h1>Booked</h1>
+                    <p>1881</p>
+                  </div>
+                </div>
               </div>
-            </div>
+            }
+            {
+              (isAdmin && !isExpert) &&
+              <div>
+                <div className="charts__right__title">
+                  <div>
+                    <h1>Reports</h1>
+                    <p>Mentex-Health Organization</p>
+                  </div>
+                  <i className="fa fa-use"></i>
+                </div>
+                <div className="charts__right__cards">
+                  <div className="card1">
+                    <h1>Post</h1>
+                    <p>$75,300</p>
+                  </div>
+
+                  <div className="card2">
+                    <h1>Experts</h1>
+                    <p>$125,300</p>
+                  </div>
+
+                  <div className="card3">
+                    <h1>Users</h1>
+                    <p>3900</p>
+                  </div>
+
+                  <div className="card4">
+                    <h1>Booked</h1>
+                    <p>1881</p>
+                  </div>
+                </div>
+              </div>
+            }
           </div>
         </div>
       </div>
-    </main>
+    </main >
   );
 };
 
 export default Main;
+
