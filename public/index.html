@@ -40,6 +40,27 @@
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <div id="fb-root"></div>
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v10.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your Chat Plugin code -->
+  <div class="fb-customerchat" attribution="setup_tool" page_id="111697810970649">
+  </div>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -50,7 +71,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=913351099510370&autoLogAppEvents=1" nonce="ccIZvyTf"></script>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=913351099510370&autoLogAppEvents=1"
+    nonce="ccIZvyTf"></script>
   <!--
       Bootstrap CDN
     -->
