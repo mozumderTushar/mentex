@@ -49,11 +49,11 @@ function App() {
           <PrivateRoute path='/adminList'> <AdminList /> </PrivateRoute>
           <PrivateRoute path='/expertList'> <ExpertList /> </PrivateRoute>
           <PrivateRoute path='/appointmentList'> <AppointmentList /> </PrivateRoute>
-          <Route path='/editAdmin/:adminID'> <EditAdmin /> </Route>
-          <Route path='/editExpert/:expertID'> <EditExpert /> </Route>
-          <Route path='/post'> <NewPost /> </Route>
-          <Route path='/allPost'> <AllPost /> </Route>
-          <Route path='/postDetails/:postID'> <PostDetails /> </Route>
+          <PrivateRoute path='/editAdmin/:adminID'> <EditAdmin /> </PrivateRoute>
+          <PrivateRoute path='/editExpert/:expertID'> <EditExpert /> </PrivateRoute>
+          <PrivateRoute path='/post'> <NewPost /> </PrivateRoute>
+          <PrivateRoute path='/allPost'> <AllPost /> </PrivateRoute>
+          <PrivateRoute path='/postDetails/:postID'> <PostDetails /> </PrivateRoute>
           <Route path='/cookies'> <Cookies /> </Route>
           <Route path='/static'> <Static /> </Route>
         </Switch>

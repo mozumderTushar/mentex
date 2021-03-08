@@ -68,7 +68,8 @@ const NewPost = () => {
     e.preventDefault()
     values.img = image;
     values.postName = loggedInUser.name || userLoggedInSession;
-    values.postDate = new Date();
+    values.postEmail = loggedInUser.email || userLoggedInSession;
+    values.postDate = (new Date()).toISOString().slice(0,10)
     console.log('values', values);
     if (validate()) {
       fetch('https://peaceful-lake-24732.herokuapp.com/addPost', {

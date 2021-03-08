@@ -77,9 +77,10 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           <i className="fab fa-atlassian"></i>
           <Link to="/post">Post</Link>
         </div>
+
         <div className="sidebar__link">
           <i className="fas fa-book"></i>
-          <Link to="/stories">Stories</Link>
+          <Link to="/allPost">Stories</Link>
         </div>
         {
           (isExpert && !isAdmin) &&
