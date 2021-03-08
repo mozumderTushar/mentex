@@ -77,6 +77,7 @@ const PostDetails = () => {
             </div>
           </div>
         </div>
+        <div class="fb-like" data-href="https://mentex-5b2ed.web.app/" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="false"></div>
         {
           postDetails.postEmail === (userLoggedInSession || loggedInUser.email) ?
           <button type="button"
@@ -88,7 +89,7 @@ const PostDetails = () => {
               onConfirm: () => { handlePostDelete(postDetails._id) }
             })
           }
-          class="btn btn-danger my-3">Delete</button> :''
+          class="btn btn-danger btn-sm my-3">Delete</button> :''
         }
         <div class="fb-comments" data-href={`https://mentex-5b2ed.web.app/${postID}`} data-width="300px" data-numposts="5">comment</div>
       </div>

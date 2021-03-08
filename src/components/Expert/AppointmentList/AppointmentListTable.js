@@ -48,6 +48,7 @@ const AppointmentListTable = ({ appointmentList, handleClose, handleOpen, open, 
   function openModal(id) {
     setIsOpen(true);
     setPrescriptionID(id)
+    console.log('openModal',id);
   }
 
   function closeModal() {

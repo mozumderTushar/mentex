@@ -5,6 +5,7 @@ import Controls from "../../Controls/Controls";
 import { useForm, Form } from '../../FormMaterialUi/useForm'
 import { makeStyles } from '@material-ui/core/styles';
 import Notification from '../../Alert/Notification/Notification';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,7 @@ const initialFValues = {
 }
 
 export default function PrescriptionForm({ prescriptionID, closeModal, prescriptionUser }) {
+  let history = useHistory();
   const [notify, setNotify] = useState({
     isOpen: false,
     message: '',
@@ -51,8 +53,22 @@ export default function PrescriptionForm({ prescriptionID, closeModal, prescript
     resetForm
   } = useForm(initialFValues, true, validate);
 
+  const handleDeleteAppointment = (id) => {
+    console.log('handleDeleteAppointment', id);
+    fetch(`https://peaceful-lake-24732.herokuapp.com/deleteAppointment/${id}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result) {
+          console.log(result)
+        }
+      })
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
+    console.log('values', values);
     if (validate()) {
       values.prescriptionID = prescriptionID;
       values.patientName = prescriptionUser.name;
@@ -82,7 +98,7 @@ export default function PrescriptionForm({ prescriptionID, closeModal, prescript
       })
       setTimeout(function () { closeModal(); }, 2000);
       resetForm();
-
+      history.push('/dashboard')
     }
   }
 
@@ -103,6 +119,7 @@ export default function PrescriptionForm({ prescriptionID, closeModal, prescript
         <div>
           <Controls.Button
             className={classes.button}
+            onClick={() => handleDeleteAppointment(prescriptionID)}
             type="submit"
             text="Submit"
             endIcon={<Icon>send</Icon>} />
