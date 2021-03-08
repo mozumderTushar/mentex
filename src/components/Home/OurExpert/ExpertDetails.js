@@ -32,7 +32,7 @@ const ExpertDetails = () => {
             <h2 className="lead">Gender:{expertDetails.gender}</h2>
             <h2 className="lead">Mobile:{expertDetails.mobile}</h2>
             <h2 className="lead">Details:{expertDetails.details}</h2>
-            <Link to="/connectExpert"><button className="btn btn-brand my-3 common__btn">GET APPOINTMENT</button></Link>
+            <Link to="/connectExpert"><button className="btn btn-brand my-3 common__btn">GET ADVICE</button></Link>
           </div>
         </div>
       </div>
