@@ -4,7 +4,7 @@ import './Controls.css'
 
 export default function Select(props) {
 
-  const { name, label, value, error = null, onChange, options } = props;
+  const { name, label, value, error = null, onChange, options,required } = props;
 
   return (
     <FormControl variant="outlined" 
@@ -14,6 +14,7 @@ export default function Select(props) {
       <InputLabel>{label}</InputLabel>
       <MuiSelect
         variant="outlined"
+        required={required}
         label={label}
         name={name}
         value={value}

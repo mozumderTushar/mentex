@@ -160,6 +160,7 @@ const EditAdmin = () => {
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Controls.Input
+                required="required"
                 name="fullName"
                 label="Full Name"
                 value={values.fullName || adminList.fullName}
@@ -169,6 +170,7 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
+                required="required"
                 label="Email"
                 name="email"
                 value={values.email || adminList.email}
@@ -178,6 +180,7 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
+                required="required"
                 label="Mobile"
                 name="mobile"
                 value={values.mobile || adminList.mobile}
@@ -187,6 +190,7 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={6}>
               <Controls.Select
+                required="required"
                 label="Gender"
                 name="gender"
                 options={genderItems}
@@ -197,6 +201,7 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={6}>
               <Controls.Input
+                required="required"
                 type="number"
                 label="Age"
                 name="age"

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ConfirmDialog from '../../Alert/ConfirmDialog/ConfirmDialog';
 import Notification from '../../Alert/Notification/Notification';
-import './AdminList.css'
+import './AdminList.css';
+
 
 const AdminListTable = ({ adminList }) => {
   const [notify, setNotify] = useState({

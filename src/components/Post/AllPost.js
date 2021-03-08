@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -18,6 +18,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../App/App';
+import NavBar from '../Shared/NavBar/NavBar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,20 +47,24 @@ const useStyles = makeStyles((theme) => ({
 
 const AllPost = () => {
   const classes = useStyles();
-  const [expanded, setExpanded] = useState(false);
   const [allPost, setAllPost] = useState([])
+  const userLoggedInSession = sessionStorage.getItem('email');
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+  const [specifiedPost, setSpecifiedPost] = useState([])
+  const [email, setEmail] = useState(false)
 
   useEffect(() => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allPost')
       .then(res => res.json())
       .then(data => setAllPost(data))
   }, [])
-  console.log('allPost', allPost);
 
+  console.log('allPost', allPost);
+  console.log('specifiedPost', specifiedPost);
   return (
     <div>
-
-      <Grid container spacing={1}>
+      <NavBar />
+      <Grid container spacing={1} className="my-5">
         {
           allPost.map(singlePost => (
             <Grid item sm={4} xs={12}>
@@ -83,7 +89,7 @@ const AllPost = () => {
                 />
                 <CardContent>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    {singlePost.post}
+                    {singlePost.post.slice(0, 100)}...
                   </Typography>
                 </CardContent>
                 <CardContent>
@@ -94,9 +100,7 @@ const AllPost = () => {
                     <FavoriteIcon />
                   </IconButton>
                   <Link to={`postDetails/${singlePost._id}`}>
-                    <IconButton aria-label="share">
-                      comment
-                  </IconButton>
+                    See Details
                   </Link>
                 </CardActions>
               </Card>
