@@ -3,10 +3,10 @@ import { TextField } from '@material-ui/core';
 
 export default function Input(props) {
 
-  const { name, label, value, error = null, onChange, type, multiline, row,required } = props;
+  const { name, label, value, error = null, onChange, type, multiline, row, } = props;
   return (
     <TextField
-      required={required}
+      InputLabelProps={props.InputLabelProps}
       variant="outlined"
       label={label}
       name={name}

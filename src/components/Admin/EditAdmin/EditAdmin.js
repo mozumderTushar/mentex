@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../App/App';
-import { Grid, Hidden, Paper, } from '@material-ui/core';
+import { Grid, Hidden, Paper, TextField } from '@material-ui/core';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import ResponsiveSidebar from '../../Dashboard/ResponsiveSidebar/ResponsiveSidebar';
 import '../AddAdmin/AddAdmin.css'
@@ -160,7 +160,9 @@ const EditAdmin = () => {
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Controls.Input
-                required="required"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 name="fullName"
                 label="Full Name"
                 value={values.fullName || adminList.fullName}
@@ -170,7 +172,9 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
-                required="required"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 label="Email"
                 name="email"
                 value={values.email || adminList.email}
@@ -180,7 +184,9 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
-                required="required"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 label="Mobile"
                 name="mobile"
                 value={values.mobile || adminList.mobile}
@@ -190,7 +196,9 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={6}>
               <Controls.Select
-                required="required"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 label="Gender"
                 name="gender"
                 options={genderItems}
@@ -201,7 +209,9 @@ const EditAdmin = () => {
             </Grid>
             <Grid item xs={6}>
               <Controls.Input
-                required="required"
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 type="number"
                 label="Age"
                 name="age"
