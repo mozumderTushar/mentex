@@ -74,7 +74,7 @@ const About = () => {
           <div className="col-md-6 align-self-center mt-3">
             <h3 className="about-title">What We Do</h3>
             <p className="lead mt-2">Mental health is one of the most underrated topics that we all discuss. It is as important as physical health. The people suffering from it are not confident enough to speak about it and society still considers it as a stigma...</p>
-            <p className="lead">We give them a platform to where they can match themselves.They can express their feelings and stories with their friends and they can also get suggestions from professionals...</p>
+            <p className="lead">We give them a platform where they can match themselves.They can express their feelings and stories with their friends and they can also get suggestions from experts...</p>
           </div>
           <div className="col-md-6 text-center">
             <img className="img-fluid rounded-circle mt-5 ml-3" style={{height:"90%"}} src={whatImg} alt="" />

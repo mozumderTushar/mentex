@@ -20,10 +20,14 @@ import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../App/App';
 import NavBar from '../Shared/NavBar/NavBar';
+import './AllPost.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    height:430,
+    marginTop:20,
+    boxShadow: "0 0 0.5em grey"
   },
   media: {
     height: 0,
@@ -62,7 +66,8 @@ const AllPost = () => {
   console.log('allPost', allPost);
   console.log('specifiedPost', specifiedPost);
   return (
-    <div>
+    <div className="common__bg__cyan post__container">
+    <div className="container">
       <NavBar />
       <Grid container spacing={1} className="my-5">
         {
@@ -96,11 +101,8 @@ const AllPost = () => {
 
                 </CardContent>
                 <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                  </IconButton>
                   <Link to={`postDetails/${singlePost._id}`}>
-                    See Details
+                  <button className="btn btn-primary">See Details</button>
                   </Link>
                 </CardActions>
               </Card>
@@ -108,6 +110,7 @@ const AllPost = () => {
           ))
         }
       </Grid>
+    </div>
     </div>
   );
 };
