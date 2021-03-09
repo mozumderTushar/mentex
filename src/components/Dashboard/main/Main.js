@@ -10,12 +10,17 @@ const Main = () => {
   const [prescription, setPrescription] = useState({})
   const [isExpert, setIsExpert] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [numberExpert, setNumberExpert] = useState('')
+  const [numberAdmin, setNumberAdmin] = useState('')
+  const [numberPost, setNumberPost] = useState('')
+  const [numberPrescription, setNumberPrescription] = useState('')
   const userLoggedInSession = sessionStorage.getItem('email');
 
   useEffect(() => { /** Experts */
     fetch('https://peaceful-lake-24732.herokuapp.com/allExperts')
       .then(response => response.json())
       .then(data => {
+        setNumberExpert(data)
         const isExpert = data.find(expert => expert.email === (loggedInUser.email || userLoggedInSession));
         if (isExpert) {
           setIsExpert(true)
@@ -28,6 +33,7 @@ const Main = () => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allAdmins')
       .then(response => response.json())
       .then(data => {
+        setNumberAdmin(data)
         const isAdmin = data.find(admin => admin.email === (loggedInUser.email || userLoggedInSession));
         if (isAdmin) {
           setIsAdmin(true)
@@ -36,14 +42,21 @@ const Main = () => {
       })
   }, [])
 
-  useEffect(() => {
+  useEffect(() => { /** Prescription */
     fetch('https://peaceful-lake-24732.herokuapp.com/allPrescription')
       .then(response => response.json())
       .then(data => {
+        setNumberPrescription(data)
         const prescriptionData = data.filter(SinglePrescription => SinglePrescription.patientEmail === (loggedInUser.email || userLoggedInSession));
         setPrescription(prescriptionData)
         console.log('prescriptionData', prescriptionData);
       })
+  }, [])
+
+  useEffect(() => {  /** Post */
+    fetch('https://peaceful-lake-24732.herokuapp.com/allPost')
+      .then(res => res.json())
+      .then(data => setNumberPost(data))
   }, [])
 
   console.log('prescription', prescription);
@@ -62,23 +75,23 @@ const Main = () => {
           <div className="card-main">
             <i className="fa fa-user fa-2x text-lightblue"></i>
             <div className="card__inner">
-              <p className="text-primary-p">Number Of Appointment</p>
-              <span className="font-bold text-title">574</span>
+              <p className="text-primary-p">Number Of Advices</p>
+              <span className="font-bold text-title">{numberPrescription.length}</span>
             </div>
           </div>
           <div className="card-main">
             <i className="fas fa-sort-amount-up fa-2x text-red"></i>
             <div className="card__inner">
               <p className="text-primary-p">Number Of Post</p>
-              <span className="font-bold text-title">2467</span>
+              <span className="font-bold text-title">{numberPost.length}</span>
             </div>
           </div>
 
           <div className="card-main">
             <i className="fas fa-user-md fa-2x text-yellow"></i>
             <div className="card__inner">
-              <p className="text-primary-p">Number Of Professional</p>
-              <span className="font-bold text-title"> 340</span>
+              <p className="text-primary-p">Number Of Expert</p>
+              <span className="font-bold text-title"> {numberExpert.length}</span>
             </div>
           </div>
 
@@ -86,7 +99,7 @@ const Main = () => {
             <i className="fa fa-users fa-2x text-green"></i>
             <div className="card__inner">
               <p className="text-primary-p">Number Of Admins</p>
-              <span className="font-bold text-title">5</span>
+              <span className="font-bold text-title">{numberAdmin.length}</span>
             </div>
           </div>
 
@@ -147,22 +160,22 @@ const Main = () => {
                 <div className="charts__right__cards">
                   <div className="card1">
                     <h1>Post</h1>
-                    <p>$75,300</p>
+                    <p>{numberPost.length}</p>
                   </div>
 
                   <div className="card2">
                     <h1>Experts</h1>
-                    <p>$125,300</p>
+                    <p>{numberExpert.length}</p>
                   </div>
 
                   <div className="card3">
-                    <h1>Users</h1>
-                    <p>3900</p>
+                    <h1>Admins</h1>
+                    <p>{numberAdmin.length}</p>
                   </div>
 
                   <div className="card4">
-                    <h1>Booked</h1>
-                    <p>1881</p>
+                    <h1>Advice</h1>
+                    <p>{numberPrescription.length}</p>
                   </div>
                 </div>
               </div>
@@ -180,22 +193,22 @@ const Main = () => {
                 <div className="charts__right__cards">
                   <div className="card1">
                     <h1>Post</h1>
-                    <p>$75,300</p>
+                    <p>{numberPost.length}</p>
                   </div>
 
                   <div className="card2">
                     <h1>Experts</h1>
-                    <p>$125,300</p>
+                    <p>{numberExpert.length}</p>
                   </div>
 
                   <div className="card3">
-                    <h1>Users</h1>
-                    <p>3900</p>
+                    <h1>Admins</h1>
+                    <p>{numberAdmin.length}</p>
                   </div>
 
                   <div className="card4">
-                    <h1>Booked</h1>
-                    <p>1881</p>
+                    <h1>Advice</h1>
+                    <p>{numberPrescription.length}</p>
                   </div>
                 </div>
               </div>

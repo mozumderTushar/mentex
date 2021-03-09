@@ -189,6 +189,9 @@ const EditExpert = () => {
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <Controls.Input
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 name="fullName"
                 label="Full Name"
                 value={values.fullName || expertList.fullName}
@@ -198,6 +201,9 @@ const EditExpert = () => {
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 label="Email"
                 name="email"
                 value={values.email || expertList.email}
@@ -207,6 +213,9 @@ const EditExpert = () => {
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 label="Mobile"
                 name="mobile"
                 value={values.mobile || expertList.mobile}
@@ -244,6 +253,9 @@ const EditExpert = () => {
             </Grid>
             <Grid item xs={12}>
               <Controls.Input
+                InputLabelProps={{
+                  shrink: true,
+                }}
                 label="Details"
                 name="details"
                 multiline="multiline"
