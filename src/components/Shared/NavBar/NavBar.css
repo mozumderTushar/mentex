@@ -1,3 +1,9 @@
 a.nav-link.active{
   border-bottom: 3px solid #5AE4A7;
 }
+
+@media only screen and (min-width:0px) and (max-width: 768px){
+  .navbar-nav{
+    text-align:center;
+  }
+}
