@@ -86,7 +86,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           (isExpert && !isAdmin) &&
           <div className="sidebar__link">
             <i className="fas fa-list-alt"></i>
-            <Link to="/appointmentList">Appointment List</Link>
+            <Link to="/appointmentList">Request For Advices</Link>
           </div>
         }
 
@@ -129,10 +129,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           <i className="fas fa-envelope-open-text"></i>
           <Link to="/contact">Contact Us</Link>
         </div>
-        <div className="sidebar__link">
-          <i className="fa fa-calendar-check"></i>
-          <Link to="/">Special Days</Link>
-        </div>
+
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
           <a onClick={deleteItems} style={{ cursor: 'pointer' }}>Log out</a>

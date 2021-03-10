@@ -5,7 +5,7 @@ import headerImg from '../../assets/images/header.png';
 
 const Header = () => {
   return (
-    <div className="container my-4">
+    <div className="container mt-4">
       <main className="row d-flex align-items-center">
         <div className="col-md-6 ">
           <img className="img-fluid" src={headerImg} alt="" />
