@@ -228,11 +228,16 @@ const AddExpert = () => {
               />
             </Grid>
             <div>
-              <Controls.Button
-                className={classes.button}
-                type="submit"
-                text="Add"
-                endIcon={<Icon>send</Icon>} />
+              {
+                image.length > 0 ?
+                  <Controls.Button
+                    className={classes.button}
+                    type="submit"
+                    text="Add"
+                    endIcon={<Icon>send</Icon>} />
+                  : ''
+              }
+
             </div>
           </Grid>
           <Notification notify={notify} setNotify={setNotify} />

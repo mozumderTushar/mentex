@@ -39,10 +39,10 @@ function App() {
           <Route exact path='/'> <Home /> </Route>
           <Route path='/about'> <About /> </Route>
           <Route path='/contact'> <Contact /> </Route>
-          <Route path='/expertDetails/:DetailsID'> <ExpertDetails /> </Route>
+          <PrivateRoute path='/expertDetails/:DetailsID'> <ExpertDetails /> </PrivateRoute>
           <Route path='/prescription/:prescriptionID'> <UserPrescription /> </Route>
           <Route path='/login'> <Login /> </Route>
-          <Route path='/connectExpert'> <ExpertAppointment /> </Route>
+          <PrivateRoute path='/connectExpert'> <ExpertAppointment /> </PrivateRoute>
           <PrivateRoute path='/dashboard'> <Dashboard /> </PrivateRoute>
           <PrivateRoute path='/AddAdmin'> <AddAdmin /> </PrivateRoute>
           <PrivateRoute path='/AddExperts'> <AddExpert /> </PrivateRoute>

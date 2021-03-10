@@ -43,7 +43,7 @@ const OurExpert = () => {
             <div className="row  pt-5">
               <div className="col-md-6 offset-md-1  align-self-center">
                 <h1>{expert.fullName}</h1>
-                <h3>{expert.details}</h3>
+                <h3>{expert.details.slice(0,250)}....</h3>
                 <Link to={`expertDetails/${expert._id}`} className="detailsBtn"><Button className="button" height="40px" variant="contained">Details</Button></Link>
               </div>
               <div className="col-md-4">

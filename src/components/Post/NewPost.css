@@ -14,3 +14,9 @@
 .fa-cloud-upload-alt{
   font-size: 20px;
 }
+
+@media only screen and (min-width:0px) and (max-width:767px){
+  .upload{
+    width: 100%;
+  }
+}
