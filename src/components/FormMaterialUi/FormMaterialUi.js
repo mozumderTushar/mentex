@@ -6,6 +6,8 @@ import { useForm, Form } from './useForm'
 import { makeStyles } from '@material-ui/core/styles';
 import Notification from '../Alert/Notification/Notification';
 import ConfirmDialog from '../Alert/ConfirmDialog/ConfirmDialog';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,11 +33,11 @@ const initialFValues = {
   age: '',
   gender: '',
   weight: '',
-  professional: '',
   details: '',
 }
 
 export default function FormMaterialUi(props) {
+  const [professionalEmail, setProfessionalEmail] = useState('')
   const [notify, setNotify] = useState({
     isOpen: false,
     message: '',
@@ -82,12 +84,17 @@ export default function FormMaterialUi(props) {
     resetForm
   } = useForm(initialFValues, true, validate);
 
+
   const handleSubmit = e => {
     e.preventDefault()
+
+    console.log(values);
     if (validate()) {
+      values.professional = professionalEmail;
       values.service = props.appointmentOn;
       values.date = props.date;
       values.created = new Date();
+console.log(values);
 
       fetch('https://peaceful-lake-24732.herokuapp.com/addProfessionalAppointment', {
         method: 'POST',
@@ -171,13 +178,13 @@ export default function FormMaterialUi(props) {
           />
         </Grid>
         <Grid item xs={6}>
-          <Controls.Select
-            label="Select Professional"
-            name="professional"
+          <Autocomplete
+            id="Select Professional"
             options={props.professional}
-            value={values.professional}
-            onChange={handleInputChange}
-            error={errors.professional}
+            getOptionLabel={(option) => option.fullName}
+            renderInput={(params) => <TextField {...params} label="Select Professional" variant="outlined" />}
+            onChange={(event, value) => setProfessionalEmail(value.email)}
+            size="small"
           />
         </Grid>
         <Grid item xs={12}>

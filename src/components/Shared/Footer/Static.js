@@ -5,6 +5,7 @@ import './Static.css';
 const Static = () => {
   return (
     <div className="static-area">
+
       <div className="container">
         <div className="row">
           <div className="col-lg-4">
