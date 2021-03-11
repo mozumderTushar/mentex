@@ -107,7 +107,7 @@ export default function PrescriptionForm({ prescriptionID, closeModal, prescript
       <Grid container spacing={1}>
         <Grid item xs={12}>
           <Controls.Input
-            label="Prescription"
+            label="Advice"
             name="prescription"
             multiline="multiline"
             row="20"
