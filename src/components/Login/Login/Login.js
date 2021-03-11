@@ -166,11 +166,7 @@ const Login = () => {
                   <Form.Group controlId="formBasicPassword">
                     <Form.Control onBlur={handleBlur} type="password" name="password" placeholder="Password" required />
                   </Form.Group>
-
-                  {!newUser && <Form.Group controlId="formBasicCheckbox" className="d-flex ">
-                    <Form.Check type="checkbox" label="Remember Me" className="remember__me" /> <p className="forgetPassword">Forget Password</p>
-                  </Form.Group>}
-
+                  
                   <input className="BtnDesign" type="submit" value={newUser ? 'Create an account' : 'Login'} />
 
                   {newUser ? <p>Already have an account?<span className="text-brand" onClick={() => setNewUser(!newUser)}>Login</span></p> :
