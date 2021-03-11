@@ -1,7 +1,6 @@
 .static-area{
   padding-top: 5%;
   background: #131f33;
-  height:100vh;
 }
 .static-img{
   position:relative;
@@ -36,4 +35,10 @@
   padding: 7px 15px;
   display: inline-block;
   margin-top: 20px;
+}
+
+@media only screen and (min-width: 1025px){
+  .static-area{
+    height: 100vh;
+  }
 }
