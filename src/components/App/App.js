@@ -27,6 +27,7 @@ import AllPost from '../Post/AllPost';
 import PostDetails from '../Post/PostDetails';
 import Cookies from '../Shared/Footer/Cookies';
 import Static from '../Shared/Footer/Static';
+import MyStories from '../Post/MyStories';
 
 
 export const UserContext = createContext();
@@ -54,6 +55,7 @@ function App() {
           <PrivateRoute path='/post'> <NewPost /> </PrivateRoute>
           <PrivateRoute path='/allPost'> <AllPost /> </PrivateRoute>
           <PrivateRoute path='/postDetails/:postID'> <PostDetails /> </PrivateRoute>
+          <PrivateRoute path='/myStories'> <MyStories /> </PrivateRoute>
           <Route path='/cookies'> <Cookies /> </Route>
           <Route path='/static'> <Static /> </Route>
         </Switch>
