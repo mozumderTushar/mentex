@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -49,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const AllPost = () => {
+const MyStories = () => {
   const classes = useStyles();
   const [allPost, setAllPost] = useState([])
   const userLoggedInSession = sessionStorage.getItem('email');
@@ -60,16 +59,18 @@ const AllPost = () => {
   useEffect(() => {
     fetch('https://peaceful-lake-24732.herokuapp.com/allPost')
       .then(res => res.json())
-      .then(data => setAllPost(data))
+      .then(data => {
+        const details = data.filter(data => (data.postEmail) === (loggedInUser.email || userLoggedInSession))
+        setAllPost(details)
+      })
   }, [])
-
   return (
-    <div className="common__bg__cyan post__container">
+<div className="common__bg__cyan post__container">
     <div className="container">
       <NavBar />
       <Grid container spacing={1} className="my-5">
         {
-          allPost.map(singlePost => (
+          allPost?.map(singlePost => (
             <Grid item sm={4} xs={12}>
               <Card className={classes.root}>
                 <CardHeader
@@ -113,4 +114,4 @@ const AllPost = () => {
   );
 };
 
-export default AllPost;
+export default MyStories;

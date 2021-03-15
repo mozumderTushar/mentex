@@ -82,11 +82,18 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           <i className="fas fa-book"></i>
           <Link to="/allPost">Stories</Link>
         </div>
+
+      
+        <div className="sidebar__link">
+        <i class="fab fa-bitbucket"></i>
+          <Link to="/myStories">My Stories</Link>
+        </div>
+
         {
           (isExpert && !isAdmin) &&
           <div className="sidebar__link">
             <i className="fas fa-list-alt"></i>
-            <Link to="/appointmentList">Request For Advices</Link>
+            <Link to="/appointmentList">Requested Advices</Link>
           </div>
         }
 
