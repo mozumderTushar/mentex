@@ -7,7 +7,7 @@
 ## Features:
 *   Social web app for mantally disturbed people where they can share their story & also can get advices from expart.
 
-###User:
+##User:
 *   User need to register firstly by creating an account.
 *   Users are able to Login or Logout from the website at any time.
 *   Users are able to see the details of every expert (Name, email, phone,experiences and details).
@@ -19,11 +19,11 @@
 *   User can contact admin via contact us.
 *   User can contact admin via messenger also.
 
-###Expert:
+##Expert:
 * Experts can view all the requests they get from the users in their dashboard for help.
 * Experts can advise them accordingly and once submitted any advice, the request in the table will automatically delete.
 
-###Admin:
+##Admin:
 * Admin have the power to add new admin and experts for the website.
 * Admin can see the experts list and admin list.
 * Admin can edit any experts details and delete any expert from website
