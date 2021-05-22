@@ -1,71 +1,47 @@
-# Getting Started with Create React App
+# MANTEX -A WEBSITE FOR MENTALLY DISTURBED PEOPLE.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![MANTEX](https://i.ibb.co/HxMsvTD/Capture.png)
 
-## Available Scripts
+**[LIVE WEBSITE](https://mentex-5b2ed.web.app/)** | **[LIVE API SERVER](https://peaceful-lake-24732.herokuapp.com/)**
 
-In the project directory, you can run:
+## Features:
+*   Social web app for mantally disturbed people where they can share their story & also can get advices from expart.
 
-### `yarn start`
+###User:
+*   User need to register firstly by creating an account.
+*   Users are able to Login or Logout from the website at any time.
+*   Users are able to see the details of every expert (Name, email, phone,experiences and details).
+*   User can get help from experts by sharing their problems through a form to a particular expert.
+*   Users are able to see the details of advice from their dashboard what the expert gave them. And also they can download the advices in pdf format.
+*   Users can share their story, thoughts and feelings also can include pictures with it through the post.
+*   Users can see other user’s posts and react to those posts (such as they can like and comment on those posts).
+*   User also can see only the posts that he/she posted in the dashboard (My Stories). They can delete any post from here easily.
+*   User can contact admin via contact us.
+*   User can contact admin via messenger also.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+###Expert:
+* Experts can view all the requests they get from the users in their dashboard for help.
+* Experts can advise them accordingly and once submitted any advice, the request in the table will automatically delete.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+###Admin:
+* Admin have the power to add new admin and experts for the website.
+* Admin can see the experts list and admin list.
+* Admin can edit any experts details and delete any expert from website
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Front-end Technology :
+*   React.js
+*   Bootstrap4
+*   Material-UI
+*   CSS3
 
-### `yarn build`
+## Back-end Technology :
+*   Node.js
+*   Express.js
+*   Firebase Authentication
+*   MongoDB
+*   Heroku
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**[BACK END REPOSITORY](https://github.com/mozumderTushar/mentex-server.git)**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# mentex
